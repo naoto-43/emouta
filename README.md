@@ -38,8 +38,8 @@
 * レコメンド
 * フォロー機能
 * AI楽曲紹介
-* プレイリスト共有・作成
+* プレイリスト共有
 * 投稿のレイアウトカスタマイズ機能
 
 ## 画面遷移図
-[画面遷移図](https://www.figma.com/file/sQQpGEY3AnXdvtFB1oQGLS/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?type=design&node-id=0-1&mode=design&t=HiYwdb1VKgKE29zg-0){:target="_blank"}
+https://www.figma.com/file/sQQpGEY3AnXdvtFB1oQGLS/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?type=design&node-id=0-1&mode=design&t=SofTB3ApYc5ZiU2b-0
