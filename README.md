@@ -1,4 +1,4 @@
-# My Phrase
+# emouta
 ## サービス概要
 「この曲のここが好き！」を共有します。
 好きな曲の中でも、特にお気に入りの歌詞（フレーズ）を共有するサービスです。
@@ -43,3 +43,6 @@
 
 ## 画面遷移図
 https://www.figma.com/file/sQQpGEY3AnXdvtFB1oQGLS/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?type=design&node-id=0-1&mode=design&t=SofTB3ApYc5ZiU2b-0
+
+## ER図
+![](https://gyazo.com/d3780782357d6a7f18efb8ec6977eb8b.png)
