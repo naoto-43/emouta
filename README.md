@@ -45,4 +45,4 @@
 https://www.figma.com/file/sQQpGEY3AnXdvtFB1oQGLS/%E3%83%9D%E3%83%BC%E3%83%88%E3%83%95%E3%82%A9%E3%83%AA%E3%82%AA?type=design&node-id=0-1&mode=design&t=SofTB3ApYc5ZiU2b-0
 
 ## ER図
-![](https://gyazo.com/741c4fc0b5d6926e7b959c0dc14dd37e.png)
+![](https://gyazo.com/d3780782357d6a7f18efb8ec6977eb8b.png)
