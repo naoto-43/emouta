@@ -1,0 +1,19 @@
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+/Users/naoto/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-witnnd sitelibdir\=./.gem.20231208-43409-witnnd clean
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-witnnd sitelibdir\=./.gem.20231208-43409-witnnd
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.bundle
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-witnnd sitelibdir\=./.gem.20231208-43409-witnnd install
+/usr/bin/install -c -m 0755 debug.bundle ./.gem.20231208-43409-witnnd/debug
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/debug-1.8.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-witnnd sitelibdir\=./.gem.20231208-43409-witnnd clean

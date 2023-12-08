@@ -1,0 +1,24 @@
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
+/Users/naoto/.rbenv/versions/3.2.2/bin/ruby extconf.rb
+checking for rb_category_warn()... yes
+checking for timezone in time.h with  -Werror... yes
+checking for altzone in time.h with  -Werror... no
+creating Makefile
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-6ba4h0 sitelibdir\=./.gem.20231208-43409-6ba4h0 clean
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-6ba4h0 sitelibdir\=./.gem.20231208-43409-6ba4h0
+compiling date_core.c
+compiling date_parse.c
+compiling date_strftime.c
+compiling date_strptime.c
+linking shared-object date_core.bundle
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-6ba4h0 sitelibdir\=./.gem.20231208-43409-6ba4h0 install
+/usr/bin/install -c -m 0755 date_core.bundle ./.gem.20231208-43409-6ba4h0
+
+current directory: /Users/naoto/workspace/runteq/portfolio/emouta/vendor/bundle/ruby/3.2.0/gems/date-3.3.4/ext/date
+make DESTDIR\= sitearchdir\=./.gem.20231208-43409-6ba4h0 sitelibdir\=./.gem.20231208-43409-6ba4h0 clean
