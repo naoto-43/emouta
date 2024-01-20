@@ -2,20 +2,32 @@
   width: 100%;
   background-color: #333; /* 暗い背景色 */
   color: white;
-  text-align: center;
   padding: 10px 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .nav-list {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: inline-block; /* 中央寄せのための設定 */
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .nav-list li {
-  display: inline; /* リストアイテムを横並びに */
   margin: 0 15px; /* アイテム間の余白 */
+}
+
+.nav-right {
+  margin-left: auto;
 }
 
 .nav-bar a {
