@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/naoto-43/emouta/issues"
   },
-  "homepage": "https://github.com/naoto-43/emouta#readme"
+  "homepage": "https://github.com/naoto-43/emouta#readme",
+  "dependencies": {
+    "@rails/ujs": "^7.1.3"
+  }
 }
