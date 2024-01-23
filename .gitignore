@@ -35,3 +35,19 @@
 /config/master.key
 
 vendor/bundle
+
+/node_modules
+
+/public/packs
+/public/packs-test
+
+.DS_Store
+
+/coverage
+
+.byebug_history
+
+.env
+.env.development.local
+.env.test.local
+.env.production.local
