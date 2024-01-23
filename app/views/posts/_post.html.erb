@@ -1,0 +1,26 @@
+<div class="col-sm-12 col-lg-4 mb-3">
+  <div id="post-id-<%= post.id %>">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">
+          <a href="#">
+            <%= icon 'fas', 'trash' %>
+            <%= icon 'fas', 'pen' %>
+            <%= post.lyricks %>
+          </a>
+        </h4>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <%= icon 'far', 'user' %>
+            <%= post.user.email %>
+          </li>
+          <li class="list-inline-item">
+            <%= icon 'far', 'calendar' %>
+            <%= l post.created_at, format: :long %>
+          </li>
+        </ul>
+        <p class="card-text"><%= post.song_title %></p>
+      </div>
+    </div>
+  </div>
+</div>
