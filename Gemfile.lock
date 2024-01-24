@@ -145,8 +145,8 @@ GEM
     faker (3.2.3)
       i18n (>= 1.8.11, < 2)
     ffi (1.16.3)
-    font-awesome-rails (4.7.0.8)
-      railties (>= 3.2, < 8.0)
+    font-awesome-sass (6.5.1)
+      sassc (~> 2.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     i18n (1.14.1)
@@ -405,7 +405,7 @@ DEPENDENCIES
   devise
   factory_bot_rails
   faker
-  font-awesome-rails
+  font-awesome-sass
   importmap-rails
   jquery-rails
   kaminari

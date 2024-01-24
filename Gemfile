@@ -86,5 +86,5 @@ group :development do
 end
 
 # Font Awesomeアイコン
-gem "font-awesome-rails"
+gem "font-awesome-sass"
 gem "cssbundling-rails"
