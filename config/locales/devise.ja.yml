@@ -1,0 +1,60 @@
+ja:
+  devise:
+    confirmations:
+      confirmed: "あなたのメールアドレスは正常に確認されました。"
+      send_instructions: "数分以内にメールアドレスの確認方法についての指示が記載されたメールが送信されます。"
+      send_paranoid_instructions: "もしもあなたのメールアドレスが私たちのデータベースに存在する場合、メールアドレスの確認方法についての指示が記載されたメールが数分以内に送信されます。"
+    failure:
+      already_authenticated: "あなたはすでにサインインしています。"
+      inactive: "あなたのアカウントはまだ有効化されていません。"
+      invalid: "無効な%{authentication_keys}またはパスワードです。"
+      locked: "あなたのアカウントはロックされています。"
+      last_attempt: "あと1回の試行であなたのアカウントはロックされます。"
+      not_found_in_database: "無効な%{authentication_keys}またはパスワードです。"
+      timeout: "セッションが期限切れです。続けるにはもう一度サインインしてください。"
+      unauthenticated: "続けるにはサインインまたはサインアップが必要です。"
+      unconfirmed: "続けるにはメールアドレスを確認する必要があります。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認指示"
+      reset_password_instructions:
+        subject: "パスワードリセット指示"
+      unlock_instructions:
+        subject: "アカウント解除指示"
+      email_changed:
+        subject: "メールが変更されました"
+      password_change:
+        subject: "パスワードが変更されました"
+    omniauth_callbacks:
+      failure: "%{kind}からの認証に失敗しました。理由: \"%{reason}\"。"
+      success: "%{kind}アカウントから正常に認証されました。"
+    passwords:
+      no_token: "パスワードリセットメールから来たページではありません。パスワードリセットメールから来た場合は、提供されたURL全体を使用していることを確認してください。"
+      send_instructions: "数分以内にパスワードをリセットする方法についての指示が記載されたメールが送信されます。"
+      send_paranoid_instructions: "もしもあなたのメールアドレスが私たちのデータベースに存在する場合、数分以内にそのメールアドレスにパスワード復旧リンクが送信されます。"
+      updated: "あなたのパスワードは正常に変更されました。現在サインインしています。"
+      updated_not_active: "あなたのパスワードは正常に変更されました。"
+    registrations:
+      destroyed: "さようなら！あなたのアカウントは正常にキャンセルされました。またのお越しをお待ちしています。"
+      signed_up: "ようこそ！正常にサインアップしました。"
+      signed_up_but_inactive: "正常にサインアップしました。しかし、あなたのアカウントはまだ有効化されていないため、サインインすることはできません。"
+      signed_up_but_locked: "正常にサインアップしました。しかし、あなたのアカウントはロックされているため、サインインすることはできません。"
+      signed_up_but_unconfirmed: "確認リンクが記載されたメッセージがあなたのメールアドレスに送信されました。リンクをたどってアカウントを有効化してください。"
+      update_needs_confirmation: "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認して確認リンクをたどってください。"
+      updated: "あなたのアカウントは正常に更新されました。"
+      updated_but_not_signed_in: "あなたのアカウントは正常に更新されましたが、パスワードが変更されたため、もう一度サインインする必要があります。"
+    sessions:
+      signed_in: "正常にサインインしました。"
+      signed_out: "正常にサインアウトしました。"
+      already_signed_out: "すでにサインアウトしています。"
+    unlocks:
+      send_instructions: "数分以内にアカウントの解除方法についての指示が記載されたメールが送信されます。"
+      send_paranoid_instructions: "もしもあなたのアカウントが存在する場合、数分以内にそのアカウントを解除する方法についての指示が記載されたメールが送信されます。"
+      unlocked: "あなたのアカウントは正常に解除されました。続けるにはサインインしてください。"
+  errors:
+    messages:
+      already_confirmed: "はすでに確認されています。サインインを試みてください。"
+      confirmation_period_expired: "%{period}以内に確認する必要があります。新しいものをリクエストしてください。"
+      expired: "は期限切れです。新しいものをリクエストしてください。"
+      not_found: "見つかりません"
+      not_locked: "ロックされていません"

@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
+  # 既存のルート
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  # Deviseのログアウトルートを追加
+  devise_scope :user do
+    delete 'users/sign_out', to: 'devise/sessions#destroy'
+  end
+
+  # 他のルート
   get "up" => "rails/health#show", as: :rails_health_check
-
-  # Defines the root path route ("/")
-root "posts#index"
+  root "posts#index"
 end
