@@ -1,0 +1,15 @@
+ja:
+  defaults:
+    login: 'ログイン'
+    logout: 'ログアウト'
+    sign_up: '新規登録'
+    forgot_password: 'パスワードを忘れた方'
+    didnt_receive_confirmation_instructions: '確認指示が届いていない方'
+    didnt_receive_unlock_instructions: 'アンロック指示が届いていない方'
+    sign_in_with_provider: '%{provider}でサインイン'
+  devise:
+    sessions:
+      new:
+        login: 'ログイン'
+        remember_me: 'パスワードを記憶する'
+

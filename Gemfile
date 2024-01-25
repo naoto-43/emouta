@@ -38,6 +38,7 @@ gem "ransack"
 
 # Internationalization
 gem "rails-i18n"
+gem 'devise-i18n'
 
 # Admin interface
 gem "rails_admin"
