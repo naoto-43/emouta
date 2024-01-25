@@ -15,3 +15,20 @@
 @import "header";
 @import "footer"; 
 @import "font-awesome";
+
+.flash {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #333;
+  background-color: #f2f2f2; /* グレーの背景色 */
+}
+
+.flash.notice {
+  border-color: #cce5ff;
+}
+
+.flash.alert {
+  border-color: #f8d7da;
+}
