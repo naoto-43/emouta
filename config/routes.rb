@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :users, only: %i[new create]
-  resources :boards, only: %i[index new create]
+  resources :posts, only: %i[index new create]
 end
