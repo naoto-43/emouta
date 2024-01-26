@@ -1,13 +1,26 @@
 <header>
     <nav class="nav-bar">
         <div class="nav-container">
+            <!-- 中央寄せの項目 -->
             <ul class="nav-list">
-                <%= link_to "投稿一覧", root_path %>
-                <li><a href="/ai_music">AI楽曲紹介</a></li>
+                <li><%= link_to "投稿一覧", root_path %></li>
+                <li><a href="#">AI楽曲紹介</a></li>
             </ul>
+
+            <!-- 右寄せの項目 -->
             <div class="nav-right">
                 <% if user_signed_in? %>
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="header-profile">
+                            <%= image_tag 'sample', size: '40x40', class: 'rounded-circle mr15'%>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item">らんてっく たろう</div>
+                            <div class="dropdown-divider"></div>
+                            <%= link_to 'プロフィール', '#', class: 'dropdown-item' %>
+                            <%= link_to "ログアウト", destroy_user_session_path, class: 'dropdown-item', method: :delete %>
+                        </div>
+                    </div>
                 <% else %>
                     <%= link_to "ログイン", new_user_session_path %>
                 <% end %>
