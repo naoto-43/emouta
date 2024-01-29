@@ -7,6 +7,10 @@ ja:
     didnt_receive_confirmation_instructions: '確認指示が届いていない方'
     didnt_receive_unlock_instructions: 'アンロック指示が届いていない方'
     sign_in_with_provider: '%{provider}でサインイン'
+    message:
+      created: "%{item}が正常に作成されました。"
+      not_created: "%{item}を作成できませんでした。"
+
   devise:
     sessions:
       new:
