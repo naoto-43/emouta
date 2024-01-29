@@ -15,3 +15,5 @@ ja:
   posts:
     index:
       create_post: '投稿'
+    new:
+      title: '投稿作成'
