@@ -89,3 +89,5 @@ end
 # Font Awesomeアイコン
 gem "font-awesome-sass"
 gem "cssbundling-rails"
+
+gem 'pry-byebug'
