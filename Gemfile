@@ -18,7 +18,6 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "sassc-rails"
 gem "bootstrap", "~> 5.3"
-gem "jquery-rails"
 gem "mini_racer"
 
 # Background Jobs

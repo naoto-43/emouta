@@ -8,5 +8,5 @@ class Post < ApplicationRecord
   validates :link_to_music, length: { maximum: 255 }
   validates :design,  presence: true
 
-  enum design: { red: 0, blue: 1, yellow: 2 }
+  enum design: { red: 0, blue: 1, yellow: 2, green: 3 }
 end
