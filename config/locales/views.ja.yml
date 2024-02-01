@@ -17,7 +17,8 @@ ja:
         login: 'ログイン'
         remember_me: 'パスワードを記憶する'
   posts:
-    index:
-      create_post: '投稿'
     new:
       title: '投稿作成'
+  shared:
+    new_post_button: 
+      create_post: '投稿'
