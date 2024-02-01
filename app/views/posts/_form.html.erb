@@ -1,4 +1,4 @@
-<%= form_with model: post, local: true do |f| %>
+<%= form_with model: post, local: true, data: { turbo: false } do |f| %>
   <%= render 'shared/error_messages', post: post %>
   <div class="form-group">
     <%= f.label :lyricks %>
@@ -18,7 +18,16 @@
   </div>
   <div class="form-group">
     <%= f.label :design %>
-    <%= f.text_field :design, class: 'form-control' %>
+    <div class="radio-options">
+      <%= f.radio_button :design, 'red', id: 'Red', class: 'design-option' %>
+      <%= f.label :design, 'red', class: 'design-label', for: 'Red', style: "background-color: #ff5151;" %>
+      <%= f.radio_button :design, 'blue', id: 'Blue', class: 'design-option' %>
+      <%= f.label :design, 'blue', class: 'design-label', for: 'Blue', style: "background-color: #5177ff;" %>
+      <%= f.radio_button :design, 'yellow', id: 'Yellow', class: 'design-option' %>
+      <%= f.label :design, 'yellow', class: 'design-label', for: 'Yellow', style: "background-color: #ffff51;" %>
+      <%= f.radio_button :design, 'green', id: 'Green', class: 'design-option' %>
+      <%= f.label :design, 'green', class: 'design-label', for: 'Green', style: "background-color: #51ff82;" %>
+    </div>
   </div>
   <br>
   <%= f.submit class: 'btn btn-primary' %>
