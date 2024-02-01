@@ -29,7 +29,7 @@
 
 <% if user_signed_in? %>
   <div class="fixed-button">
-  <%= link_to t('.create_post'), new_post_path, class: "btn btn-primary" %>
+  <%= link_to t('.create_post'), new_post_path, class: "btn btn-primary", data: { turbo: false } %>
   </div>
 <% end %>
 
