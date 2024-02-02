@@ -1,0 +1,26 @@
+<div class="container pt-3">
+  <div class="row mb-3">
+    <div class="col-lg-8 offset-lg-2">
+      <h1><%= t('.title') %></h1>
+      <!-- 掲示板内容 -->
+      <article class="card">
+        <div class="card-body">
+          <div class='row'>
+            <div class='col-md-9'>
+              <p ><%= t('.lyricks') %></p>
+              <p><%= simple_format(@post.lyricks) %></p>
+              <%= render 'crud_menus', post: @post %>
+              <ul class="list-inline">
+                <li class="list-inline-item">by  <%= @post.artist %></li>
+                <li class="list-inline-item"><%= l @post.created_at, format: :long  %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+      <br>
+      <%= link_to t('.back'), posts_path, class: 'btn btn-secondary' %>
+      <%= link_to t('.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+    </div>
+  </div>
+</div>
