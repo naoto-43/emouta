@@ -1,24 +1,25 @@
 <div class="col-md-8 mx-auto mb-3">
-  <div id="post-id-<%= post.id %>">
-    <div class="card">
-      <div class="card-body">
-        <h4 class="card-title">
-            <%= post.lyricks %>
-        </h4>
-        <%= render 'crud_menus', post: post if current_user.own?(post) %>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <%= icon 'far', 'user' %>
-            <%= post.user.email %>
-          </li>
-          <li class="list-inline-item">
-            <%= icon 'far', 'calendar' %>
-            <%= l post.created_at, format: :long %>
-          </li>
-        </ul>
-        <p class="card-text"><%= post.song_title %></p>
+  <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'text-decoration-none text-dark' do %>
+    <div id="post-id-<%= post.id %>">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">
+              <%= post.lyricks %>
+          </h4>
+          <%= render 'crud_menus', post: post if current_user.own?(post) %>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <%= icon 'far', 'user' %>
+              <%= post.user.email %>
+            </li>
+            <li class="list-inline-item">
+              <%= icon 'far', 'calendar' %>
+              <%= l post.created_at, format: :long %>
+            </li>
+          </ul>
+          <p class="card-text"><%= post.song_title %></p>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
 </div>
-
