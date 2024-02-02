@@ -10,6 +10,10 @@ ja:
     message:
       created: "%{item}が正常に作成されました。"
       not_created: "%{item}を作成できませんでした。"
+      updated: "%{item}を更新しました"
+      not_updated: "%{item}を更新できませんでした"
+      deleted: "%{item}を削除しました"
+      delete_confirm: '削除しますか？'
 
   devise:
     sessions:
@@ -19,6 +23,10 @@ ja:
   posts:
     new:
       title: '投稿作成'
+    show:
+      title: '投稿詳細'
+    edit:
+      title: '投稿編集'
   shared:
     new_post_button: 
       create_post: '投稿'
