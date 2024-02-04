@@ -32,7 +32,7 @@ class PostsController < ApplicationController
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
       flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
-      render :edit
+      render :edit, data: { turbo: false }
     end
   end
 
