@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     else
       flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name.human)
 
-      render :new, status: :unprocessable_entity, data: { turbo: false }
+      render :new, status: :unprocessable_entity
     end
   end
 
