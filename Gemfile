@@ -90,3 +90,5 @@ gem "font-awesome-sass"
 gem "cssbundling-rails"
 
 gem 'pry-byebug'
+
+gem "tailwindcss-rails"
