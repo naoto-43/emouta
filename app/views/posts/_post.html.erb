@@ -8,7 +8,7 @@
                 <%= simple_format(truncate(post.lyricks, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
             </h4>     
             <p class="card-text"><%= simple_format(post.song_title) %></p>
-            <%= render 'crud_menus', post: post if current_user.own?(post) %>
+            <%= render 'crud_menus', post: post if current_user&.own?(post) %>
             <ul class="list-inline">
               <li class="list-inline-item">
                 <%= icon 'far', 'user', style: "font-size: 12px;" %>
