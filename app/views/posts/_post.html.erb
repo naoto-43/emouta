@@ -1,7 +1,9 @@
 <div class="col-md-8 mx-auto mb-3" style="min-height: 280px; overflow-y: auto;">
     <div id="post-id-<%= post.id %>">
       <div class="card shadow shadow-custom" style="min-height: 280px;">
-      <%= render 'crud_menus', post: post if current_user.own?(post) %>
+      <% if current_user&.own?(post) %>
+        <%= render 'crud_menus', post: post %>
+      <% end %>
       <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'text-decoration-none text-dark' do %>
         <div class="card-body mx-3 d-flex">
           <div class="content px-3" style="flex:0 0 65%;">
