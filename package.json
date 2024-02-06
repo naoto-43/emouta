@@ -9,15 +9,13 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:css": "sass ./app/assets/stylesheets/rails_admin.scss:./app/assets/builds/rails_admin.css --no-source-map --load-path=node_modules"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/naoto-43/emouta.git"
   },
-  "keywords": [
-
-  ],
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -27,7 +25,10 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@rails/ujs": "^7.1.3",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.34",
     "rails_admin": "3.1.2",
-    "sass": "^1.66.1"
+    "sass": "^1.66.1",
+    "tailwindcss": "^3.4.1"
   }
 }
