@@ -1,19 +1,13 @@
-@import "header";
-@import "footer"; 
-@import "font-awesome";
+
 
 .new-post-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 100;
+  @apply fixed bottom-5 right-5 z-10;
 }
 
 .radio-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @apply flex flex-row justify-between;
 }
+
 
 .design-option {
   display: none;
