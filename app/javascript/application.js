@@ -7,3 +7,4 @@ Rails.start();
 
 import "design_selection"
 import "posts"
+import "flowbite";
