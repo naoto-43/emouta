@@ -1,12 +1,24 @@
+<!-- 親要素に適用されるCSSスタイル（例） -->
+<style>
+  .crud-menu-container {
+    display: flex;
+    justify-content: flex-end; /* 子要素を右寄せにする */
+    padding-right: 10px; 
+  }
+</style>
 
-<ul class='crud-menu-btn list-inline float-right'>
-  <li class="list-inline-item">
-    <%= link_to edit_post_path(post), id: "button-edit-#{post.id}", data: { turbo: false } do %>
-      <%= icon 'fa', 'pen' %>
-    <% end %>
-  </li>
-  <li class="list-inline-item">
-    <%= link_to post_path(post), id: "button-delete-#{post.id}", method: :delete, data: { confirm: t('defaults.message.delete_confirm') }, data: { turbo: false } do %>
-      <%= icon 'fas', 'trash' %>
-    <% end %>
-  </li>
+<!-- CRUDメニューボタンを含むリスト -->
+<div class="crud-menu-container"> <!-- Flexboxを使用する新しいdiv -->
+  <ul class='crud-menu-btn list-inline'>
+    <li class="list-inline-item">
+      <%= link_to edit_post_path(post), id: "button-edit-#{post.id}", data: { turbo: false } do %>
+        <%= icon('fas', 'ellipsis') %>
+      <% end %>
+    </li>
+    <li class="list-inline-item">
+      <%= link_to post_path(post), id: "button-delete-#{post.id}", method: :delete, data: { confirm: t('defaults.message.delete_confirm'), turbo: false } do %>
+        <%= icon('fas', 'trash') %>
+      <% end %>
+    </li>
+  </ul>
+</div>
