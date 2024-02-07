@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/ujs", to: "@rails--ujs.js" # @7.1.3
 pin "design_selection", to: "design_selection.js"
 pin "posts", to: "posts.js"
+pin "header_adjustment", to: "header_adjustment.js"

@@ -2,9 +2,9 @@
 
 import "@hotwired/turbo-rails"
 import "controllers"
-import Rails from "@rails/ujs";
+import Rails from "@rails/ujs"
 Rails.start();
 
+import "header_adjustment"
 import "design_selection"
-import "posts"
-import "flowbite";
+// import "posts"
