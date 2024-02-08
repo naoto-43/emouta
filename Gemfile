@@ -87,3 +87,5 @@ gem "cssbundling-rails"
 gem 'pry-byebug'
 
 gem "tailwindcss-rails"
+
+gem 'rspotify'
