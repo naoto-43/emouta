@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  # 既存のルート
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
 
   # Deviseのログアウトルートを追加

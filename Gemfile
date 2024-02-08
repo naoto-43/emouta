@@ -16,8 +16,6 @@ gem "sprockets-rails"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-gem "sassc-rails"
-gem "bootstrap", "~> 5.3"
 gem "mini_racer"
 
 # Background Jobs
@@ -38,9 +36,6 @@ gem "ransack"
 # Internationalization
 gem "rails-i18n"
 gem 'devise-i18n'
-
-# Admin interface
-gem "rails_admin"
 
 # Debugging and error reporting
 group :development, :test do
