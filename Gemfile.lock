@@ -55,10 +55,6 @@ GEM
       globalid (>= 0.3.6)
     activemodel (7.1.3)
       activesupport (= 7.1.3)
-    activemodel-serializers-xml (1.0.2)
-      activemodel (> 5.x)
-      activesupport (> 5.x)
-      builder (~> 3.1)
     activerecord (7.1.3)
       activemodel (= 7.1.3)
       activesupport (= 7.1.3)
@@ -85,8 +81,6 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ast (2.4.2)
-    autoprefixer-rails (10.4.16.0)
-      execjs (~> 2)
     base64 (0.2.0)
     bcrypt (3.1.20)
     better_errors (2.10.1)
@@ -99,9 +93,6 @@ GEM
       debug_inspector (>= 0.0.1)
     bootsnap (1.17.1)
       msgpack (~> 1.2)
-    bootstrap (5.3.2)
-      autoprefixer-rails (>= 9.1.0)
-      popper_js (>= 2.11.8, < 3)
     builder (3.2.4)
     bullet (7.1.6)
       activesupport (>= 3.0.0)
@@ -139,7 +130,6 @@ GEM
     drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
-    execjs (2.9.1)
     factory_bot (6.4.5)
       activesupport (>= 5.0.0)
     factory_bot_rails (6.4.3)
@@ -207,7 +197,6 @@ GEM
     minitest (5.21.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
-    nested_form (0.3.2)
     net-imap (0.4.9.1)
       date
       net-protocol
@@ -230,7 +219,6 @@ GEM
       ast (~> 2.4.1)
       racc
     pg (1.5.4)
-    popper_js (2.11.8)
     pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -277,12 +265,6 @@ GEM
     rails-i18n (7.0.8)
       i18n (>= 0.7, < 2)
       railties (>= 6.0.0, < 8)
-    rails_admin (3.1.2)
-      activemodel-serializers-xml (>= 1.0)
-      kaminari (>= 0.14, < 2.0)
-      nested_form (~> 0.3)
-      rails (>= 6.0, < 8)
-      turbo-rails (~> 1.0)
     railties (7.1.3)
       actionpack (= 7.1.3)
       activesupport (= 7.1.3)
@@ -342,12 +324,6 @@ GEM
     rubyzip (2.3.2)
     sassc (2.4.0)
       ffi (~> 1.9)
-    sassc-rails (2.1.2)
-      railties (>= 4.0.0)
-      sassc (>= 2.0)
-      sprockets (> 3.0)
-      sprockets-rails
-      tilt
     selenium-webdriver (4.16.0)
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
@@ -369,7 +345,6 @@ GEM
     tailwindcss-rails (2.3.0-x86_64-linux)
       railties (>= 6.0.0)
     thor (1.3.0)
-    tilt (2.3.0)
     timeout (0.4.1)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
@@ -405,7 +380,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
-  bootstrap (~> 5.3)
   bullet
   capybara
   cssbundling-rails
@@ -426,11 +400,9 @@ DEPENDENCIES
   puma (>= 5.0)
   rails (~> 7.1.2)
   rails-i18n
-  rails_admin
   ransack
   rspec-rails
   rubocop
-  sassc-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails
