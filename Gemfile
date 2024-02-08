@@ -89,3 +89,5 @@ gem 'pry-byebug'
 gem "tailwindcss-rails"
 
 gem 'rspotify'
+
+gem 'carrierwave'
