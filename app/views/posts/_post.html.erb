@@ -11,11 +11,11 @@
             <%= render 'crud_menus', post: post if current_user&.own?(post) %>
             <ul class="flex flex-wrap">
               <li class="mr-2">
-                <%= icon 'far', 'user', class: "text-sm" %>
+                <%# <%= icon 'far', 'user', class: "text-sm" %> 
                 <%= post.user.email %>
               </li>
               <li>
-                <%= icon 'far', 'calendar' %>
+                <%# <%= icon 'far', 'calendar' %> 
                 <%= l post.created_at, format: :long %>
               </li>
             </ul>
