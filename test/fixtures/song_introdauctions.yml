@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  genre: MyString
+  age: 1
+  favorite_artist: MyString
+  favorite_song: MyString
+
+two:
+  genre: MyString
+  age: 1
+  favorite_artist: MyString
+  favorite_song: MyString
