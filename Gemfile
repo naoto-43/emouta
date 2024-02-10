@@ -13,7 +13,8 @@ gem "puma", ">= 5.0"
 
 # Frontend
 gem "sprockets-rails"
-gem "importmap-rails"
+gem 'jsbundling-rails'
+gem "cssbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "mini_racer"
@@ -79,10 +80,6 @@ end
 group :development do
   gem "bullet"
 end
-
-# Font Awesomeアイコン
-gem "font-awesome-sass"
-gem "cssbundling-rails"
 
 gem 'pry-byebug'
 
