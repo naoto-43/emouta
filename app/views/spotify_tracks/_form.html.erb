@@ -1,5 +1,5 @@
-<%= form_with model: post, local: true, data: { turbo: false } do |f| %>
-  <%= render 'shared/error_messages', model: post %>
+<%= form_with model: spotify_track, local: true, data: { turbo: false } do |f| %>
+  <%= render 'shared/error_messages', model: spotify_track %>
   <div class="form-group">
     <%= f.label :lyricks %>
     <%= f.text_area :lyricks, class: 'form-control', rows: 10 %>
