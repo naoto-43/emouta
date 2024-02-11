@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   resources :users, only: %i[new create]
   resources :posts
-  resource :profile, only: %i[show edit update]
+  resource :profile, only: %i[new create show edit update]
+  resources :spotify_tracks, only: %i[new create]
 end

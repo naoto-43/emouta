@@ -1,6 +1,6 @@
-class CreateSongIntrodauctions < ActiveRecord::Migration[7.1]
+class CreateSpotifyTracks < ActiveRecord::Migration[7.1]
   def change
-    create_table :song_introdauctions do |t|
+    create_table :spotify_tracks do |t|
       t.string :genre
       t.integer :age
       t.string :favorite_artist
