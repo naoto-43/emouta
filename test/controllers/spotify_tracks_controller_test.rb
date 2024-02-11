@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SpotyfiTracksControllerTest < ActionDispatch::IntegrationTest
+class SpotifyTracksControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
