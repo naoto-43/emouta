@@ -1,6 +1,6 @@
 require "test_helper"
 
-class SongIntrodauctionTest < ActiveSupport::TestCase
+class SpotyfiTracksControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

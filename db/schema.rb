@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_210208) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "song_introdauctions", force: :cascade do |t|
+  create_table "spotify_tracks", force: :cascade do |t|
     t.string "genre"
     t.integer "age"
     t.string "favorite_artist"
