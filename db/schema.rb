@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_210208) do
   end
 
   create_table "spotify_tracks", force: :cascade do |t|
-    t.string "genre"
+    t.integer "genre"
     t.integer "age"
     t.string "favorite_artist"
     t.string "favorite_song"
