@@ -1,5 +1,6 @@
 # app/models/spotify_track.rb
 class SpotifyTrack < ApplicationRecord
+  belongs_to :user
   enum age: { unspecified: 0, upto_1979: 1, the_1980s: 2, the_1990s: 3, the_2000s: 4, the_2010s: 5, from_2020: 6 }
   enum genre: { 
     acoustic: 0,

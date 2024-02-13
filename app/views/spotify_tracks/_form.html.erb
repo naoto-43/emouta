@@ -17,14 +17,14 @@
   <div class="label">
     <span class="label-text">genre</span>
   </div>
-  <select class="select select-bordered">
+  <select class="select select-bordered" name="spotify_track[genre]">
     <option disabled selected>--</option>
     <option>acoustic</option>
     <option>afrobeat</option>
     <option>alternative</option>
     <option>ambient</option>
     <option>anime/option>
-    <option>black-metal</option>
+    <option>black_metal</option>
     <option>bluegrass</option>
     <option>blues</option>
     <option>bossanova</option>
@@ -37,15 +37,15 @@
     <option>chill</option>
   </select>
 </label>
-  <div class="mb-4">
+  <%# <div class="mb-4">
     <%= f.label :favorite_artist, class: 'block text-sm font-medium' %>
-    <%= f.text_field :favirite_artist, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
-  </div>
+    <%# <%= f.text_field :favirite_artist, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
+  <%# </div>
     <div class="mb-4">
     <%= f.label :favorite_song, class: 'block text-sm font-medium' %>
-    <%= f.text_field :favirite_song, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
-  </div>
+    <%# <%= f.text_field :favirite_song, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
+  <%# </div>
   <div id="spotify-embed-container"></div>
-  <br>
-  <%= f.submit 'Submit', class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
+  <br> %>
+  <%= f.submit 'Submit', class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %> %>
 <% end %>
