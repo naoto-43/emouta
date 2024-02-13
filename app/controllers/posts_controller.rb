@@ -13,8 +13,6 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to root_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_created', item: Post.model_name.human)
-
       render :new, status: :unprocessable_entity
     end
   end
@@ -32,8 +30,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
-      flash.now['danger'] = t('defaults.message.not_updated', item: Post.model_name.human)
-      render :edit, data: { turbo: false }
+      render :edit, status: :unprocessable_entity
     end
   end
 

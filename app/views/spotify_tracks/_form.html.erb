@@ -1,35 +1,51 @@
 <%= form_with model: spotify_track, local: true, data: { turbo: false } do |f| %>
   <%= render 'shared/error_messages', model: spotify_track %>
-  <div class="form-group">
-    <%= f.label :lyricks %>
-    <%= f.text_area :lyricks, class: 'form-control', rows: 10 %>
+<label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text">age</span>
   </div>
-  <div class="form-group">
-    <%= f.label :song_title %>
-    <%= f.text_field :song_title, class: 'form-control' %>
+<select class="select select-bordered" name="spotify_track[age]">
+  <option disabled selected>--</option>
+  <option value="upto_1979">~ 1979</option>
+  <option value="the_1980s">1980~1989</option>
+  <option value="the_1990s">1990 ~ 1999</option>
+  <option value="the_2000s">2000 ~ 2009</option>
+  <option value="the_2010s">2010 ~ 2019</option>
+  <option value="from_2020">2020 ~</option>
+</select>
+<label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text">genre</span>
   </div>
-  <div class="form-group">
-    <%= f.label :artist %>
-    <%= f.text_field :artist, class: 'form-control' %>
+  <select class="select select-bordered">
+    <option disabled selected>--</option>
+    <option>acoustic</option>
+    <option>afrobeat</option>
+    <option>alternative</option>
+    <option>ambient</option>
+    <option>anime/option>
+    <option>black-metal</option>
+    <option>bluegrass</option>
+    <option>blues</option>
+    <option>bossanova</option>
+    <option>brazil</option>
+    <option>breakbeat</option>
+    <option>british</option>
+    <option>cantopop</option>
+    <option>chicago-house</option>
+    <option>children</option>
+    <option>chill</option>
+  </select>
+</label>
+  <div class="mb-4">
+    <%= f.label :favorite_artist, class: 'block text-sm font-medium' %>
+    <%= f.text_field :favirite_artist, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
   </div>
-  <div class="form-group">
-    <%= f.label :link_to_music %>
-    <%= f.text_field :link_to_music, class: 'form-control', id: 'link_to_music' %>
+    <div class="mb-4">
+    <%= f.label :favorite_song, class: 'block text-sm font-medium' %>
+    <%= f.text_field :favirite_song, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
   </div>
   <div id="spotify-embed-container"></div>
-  <div class="form-group">
-    <%= f.label :design %>
-    <div class="radio-options">
-      <%= f.radio_button :design, 'red', id: 'Red', class: 'design-option' %>
-      <%= f.label :design, 'red', class: 'design-label', for: 'Red', style: "background-color: #ff5151;" %>
-      <%= f.radio_button :design, 'blue', id: 'Blue', class: 'design-option' %>
-      <%= f.label :design, 'blue', class: 'design-label', for: 'Blue', style: "background-color: #5177ff;" %>
-      <%= f.radio_button :design, 'yellow', id: 'Yellow', class: 'design-option' %>
-      <%= f.label :design, 'yellow', class: 'design-label', for: 'Yellow', style: "background-color: #ffff51;" %>
-      <%= f.radio_button :design, 'green', id: 'Green', class: 'design-option' %>
-      <%= f.label :design, 'green', class: 'design-label', for: 'Green', style: "background-color: #51ff82;" %>
-    </div>
-  </div>
   <br>
-  <%= f.submit class: 'btn btn-primary' %>
+  <%= f.submit 'Submit', class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
 <% end %>
