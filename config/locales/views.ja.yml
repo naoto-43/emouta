@@ -7,6 +7,9 @@ ja:
     didnt_receive_confirmation_instructions: '確認指示が届いていない方'
     didnt_receive_unlock_instructions: 'アンロック指示が届いていない方'
     sign_in_with_provider: '%{provider}でサインイン'
+    post_listings: '投稿一覧'
+    ai_music_recommendations: 'AI楽曲紹介'
+    serch: '検索'
     message:
       created: "%{item}が正常に作成されました。"
       not_created: "%{item}を作成できませんでした。"
@@ -23,10 +26,21 @@ ja:
   posts:
     new:
       title: '投稿作成'
+      new_post_button: 
+        create_post: '投稿'
     show:
       title: '投稿詳細'
     edit:
       title: '投稿編集'
+  profile:
+    new:
+    create:
+    show:
+    edit:
+    update:
+  spotify_tracks:
+    new:
+    create:
+    show:
   shared:
-    new_post_button: 
-      create_post: '投稿'
+

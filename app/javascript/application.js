@@ -3,5 +3,5 @@ import "@rails/ujs";
 import "./controllers";
 import 'flowbite';
 // import "./design_selection";
-// import "./posts";
+import "./embed_spotify";
 import "./header_adjustment";
