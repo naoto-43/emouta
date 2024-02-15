@@ -1,21 +1,8 @@
 <%= form_with model: spotify_track, local: true, data: { turbo: false } do |f| %>
   <%= render 'shared/error_messages', model: spotify_track %>
-<label class="form-control w-full max-w-xs">
+  <label class="form-control w-full max-w-xs">
   <div class="label">
-    <span class="label-text">age</span>
-  </div>
-<select class="select select-bordered" name="spotify_track[age]">
-  <option disabled selected>--</option>
-  <option value="upto_1979">~ 1979</option>
-  <option value="the_1980s">1980~1989</option>
-  <option value="the_1990s">1990 ~ 1999</option>
-  <option value="the_2000s">2000 ~ 2009</option>
-  <option value="the_2010s">2010 ~ 2019</option>
-  <option value="from_2020">2020 ~</option>
-</select>
-<label class="form-control w-full max-w-xs">
-  <div class="label">
-    <span class="label-text">genre</span>
+    <span class="label-text"><%= t('activerecord.attributes.spotify_track.genre') %></span>
   </div>
   <select class="select select-bordered" name="spotify_track[genre]">
     <option disabled selected>--</option>
@@ -36,7 +23,19 @@
     <option>children</option>
     <option>chill</option>
   </select>
-</label>
+  <label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text"><%= t('activerecord.attributes.spotify_track.age') %></span>
+  </div>
+  <select class="select select-bordered" name="spotify_track[age]">
+    <option disabled selected>--</option>
+    <option value="upto_1979">~ 1979</option>
+    <option value="the_1980s">1980~1989</option>
+    <option value="the_1990s">1990 ~ 1999</option>
+    <option value="the_2000s">2000 ~ 2009</option>
+    <option value="the_2010s">2010 ~ 2019</option>
+    <option value="from_2020">2020 ~</option>
+  </select>
   <%# <div class="mb-4">
     <%= f.label :favorite_artist, class: 'block text-sm font-medium' %>
     <%# <%= f.text_field :favirite_artist, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
@@ -45,7 +44,7 @@
     <%= f.label :favorite_song, class: 'block text-sm font-medium' %>
     <%# <%= f.text_field :favirite_song, class: 'mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50', id: 'link_to_music' %>
   <%# </div>
-  <div id="spotify-embed-container"></div>
-  <br> %>
-  <%= f.submit 'Submit', class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
+  <div id="spotify-embed-container"></div> %>
+  <br>
+  <%= f.submit t('defaults.serch'), class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
 <% end %>

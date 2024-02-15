@@ -22,21 +22,28 @@ class SpotifyTracksController < ApplicationController
       when 'from_2020'
         '2020-'
       else
-        '' # 未指定またはその他の場合
+        '' 
       end
 
-      # 変数を展開してクエリを作成する
       query = "genre:\"#{genre_param}\" year:#{year_range}"
       tracks = RSpotify::Track.search(query, limit: 5)
       tracks.each_with_index do |track, index|
-        track_link = track.external_urls['spotify']
+        session[:track_links] ||= []
+        session[:track_links] << track.external_urls['spotify']
+        @track_links = session[:track_links] || []
       end
-      redirect_to show_spotify_track_path, success: t('defaults.message.created', item: SpotifyTrack.model_name.human)
+      
+      redirect_to spotify_track_path(id: @spotify_track.id)
     else
       render :new, status: :unprocessable_entity
     end
   end
-
+  
+  def show
+    @track_links = session[:track_links] || []
+    session.delete(:track_links)
+  end
+  
   private
 
   def spotify_track_params
