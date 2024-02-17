@@ -9,7 +9,7 @@ ja:
     sign_in_with_provider: '%{provider}でサインイン'
     post_listings: '投稿一覧'
     ai_music_recommendations: 'AI楽曲紹介'
-    serch: '検索'
+    search: '検索'
     message:
       created: "%{item}が正常に作成されました。"
       not_created: "%{item}を作成できませんでした。"

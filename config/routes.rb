@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :posts
   resource :profile, only: %i[new create show edit update]
   resources :spotify_tracks, only: %i[new create show]
+  get 'search/artists', to: 'search#artists', as: :search_artists
 end

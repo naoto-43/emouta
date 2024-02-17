@@ -8,17 +8,6 @@
                 <%= simple_format(truncate(post.lyricks, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
             </h4>     
             <p class="card-text"><%= simple_format(post.song_title) %></p>
-            <%= render 'crud_menus', post: post if current_user&.own?(post) %>
-            <ul class="flex flex-wrap">
-              <li class="mr-2">
-                <%# <%= icon 'far', 'user', class: "text-sm" %> 
-                <%= post.user.email %>
-              </li>
-              <li>
-                <%# <%= icon 'far', 'calendar' %> 
-                <%= l post.created_at, format: :long %>
-              </li>
-            </ul>
           </div>
           <div class="spotify-embed" style="flex: 1 1 35%;"> <!-- ここでSpotify埋め込みに35%の幅を設定 -->
             <% if post.link_to_music.include?("spotify.com") %>

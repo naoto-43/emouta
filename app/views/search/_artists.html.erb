@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "artists" do %>
+  <div id="artists" turbo-frame="artists">
+    <% @artists.each do |artist| %>
+      <div><%= artist.name %></div>
+    <% end %>
+  </div>
+<% end %>
