@@ -1,8 +1,7 @@
-<%= form_with url: search_artists_path, method: :get, data: { turbo_frame: "artists" } do |form| %>
-  <%= form.text_field :query, id: "artist_query", data: { action: "input->search#query" } %>
+<%= form_with url: search_artists_path, method: :get, data: { turbo_frame: "artists", controller: "form", action: "input->form#search" } do |form| %>
+  <%= form.text_field :query, id: "artist_query", autocomplete: "off", data: { form_target: "query" } %>
   <%= form.submit t('defaults.search'), class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
 <% end %>
-
 <div id="artists" turbo-frame="artists">
-  <!-- 検索結果がここに表示される -->
+  <!-- 検索結果がここに表示されます -->
 </div>
