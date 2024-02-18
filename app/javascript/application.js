@@ -5,3 +5,7 @@ import 'flowbite';
 // import "./design_selection";
 import "./embed_spotify";
 import "./header_adjustment";
+
+document.addEventListener("turbo:load", function() {
+  console.log("Turbo frame loaded");
+});
