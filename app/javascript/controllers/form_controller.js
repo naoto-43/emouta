@@ -6,19 +6,15 @@ export default class extends Controller {
 
   connect() {
     console.log("Form controller connected");
-    this.fillQueryBound = this.fillQuery.bind(this); // fillQueryメソッドをバインドし、参照を保存
-    this.setupListeners();
-    document.addEventListener("turbo:load", () => this.setupListeners());
-    document.addEventListener("turbo:frame-load", () => this.setupListeners());
   }
   
-  setupListeners() {
-    console.log("Setting up listeners for form controller");
-    document.querySelectorAll('#artists button[data-artist-name]').forEach(button => {
-      button.removeEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを削除
-      button.addEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを設定
-    });
-  }
+  // setupListeners() {
+  //   console.log("Setting up listeners for form controller");
+  //   document.querySelectorAll('#artists button[data-artist-name]').forEach(button => {
+  //     button.removeEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを削除
+  //     button.addEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを設定
+  //   });
+  // }
 
   search(event) {
     event.preventDefault(); 
