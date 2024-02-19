@@ -1,7 +1,7 @@
-<%= turbo_stream.replace "artists" do %>
-  <div id="artists" turbo-frame="artists">
-    <% @artists.each do |artist| %>
-      <button data-action="click->form#fillQuery" data-artist-name="<%= artist.name %>"><%= artist.name %></button>
-    <% end %>
-  </div>
-<% end %>
+  <%= turbo_stream.replace "artists" do %>
+    <div id="artists" turbo-frame="artists">
+      <% @artists.each do |artist| %>
+        <button data-action="click->form#fillQuery" data-artist-name="<%= artist.name %>"><%= artist.name %></button>
+      <% end %>
+    </div>
+  <% end %>
