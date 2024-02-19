@@ -6,15 +6,29 @@ export default class extends Controller {
 
   connect() {
     console.log("Form controller connected");
+    this.fillQueryBound = this.fillQuery.bind(this); // fillQueryメソッドをバインドし、参照を保存
+    this.setupListeners();
+    document.addEventListener("turbo:load", () => this.setupListeners());
+    document.addEventListener("turbo:frame-load", () => this.setupListeners());
+  }
+  
+  setupListeners() {
+    console.log("Setting up listeners for form controller");
+    document.querySelectorAll('#artists button[data-artist-name]').forEach(button => {
+      button.removeEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを削除
+      button.addEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを設定
+    });
   }
 
   search(event) {
     event.preventDefault(); 
 
     const url = `${this.element.action}?query=${this.queryTarget.value}`;
+    console.log(url);
     const options = {
       responseKind: "turbo-stream",
     };
+    console.log(options);
 
     get(url, options).then(response => {
       console.log(response);
@@ -24,7 +38,7 @@ export default class extends Controller {
   fillQuery(event) {
     console.log("fillQuery triggered");
     const artistName = event.currentTarget.dataset.artistName;
-    console.log("Artist Name:", artistName); // クリックされたアーティスト名をログに出力
+    console.log("Artist Name:", artistName);
     this.queryTarget.value = artistName;
   }
 }
