@@ -9,5 +9,3 @@ import "./header_adjustment";
 document.addEventListener("turbo:load", function() {
   console.log("Turbo frame loaded");
 });
-
-// console.log(window.add2);
