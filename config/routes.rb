@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create]
   resources :posts
   resource :profile, only: %i[new create show edit update]
-  resources :spotify_tracks, only: %i[new create show]
+  resources :spotify_tracks, only: %i[new create]
+  get 'spotify_tracks/result', to: 'spotify_tracks#result', as: :spotify_track_result
   get 'search/artists', to: 'search#artists', as: :search_artists
 end
