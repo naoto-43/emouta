@@ -15,6 +15,7 @@ class SpotifyTracksController < ApplicationController
         render :new, status: :unprocessable_entity
       else
         session[:track_urls] = @recommendations.tracks.map { |track| track.external_urls['spotify'] }
+        session[:artist_name] = artist_name 
         redirect_to spotify_track_result_path 
       end
     else
@@ -25,6 +26,7 @@ class SpotifyTracksController < ApplicationController
   
   def result
     @track_urls = session[:track_urls]
+    @artist_name = session[:artist_name] 
   end
   
   private

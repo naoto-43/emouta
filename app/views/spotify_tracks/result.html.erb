@@ -1,4 +1,4 @@
-<h1>Recommended Tracks</h1>
+<h1><%= @artist_name %></h1>
 <ul>
   <% @track_urls.each do |url| %>
   <% track_id = url.split("/").last %>
