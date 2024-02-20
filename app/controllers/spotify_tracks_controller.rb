@@ -4,17 +4,17 @@ class SpotifyTracksController < ApplicationController
   end
 
   def create
-    artist_name = params[:favorite_artist]
-    track_name = params[:favorite_song]
-    country_code = params[:country]
+    artist_name = params[:query]
+    # track_name = params[:favorite_song]
+
 
     artists = RSpotify::Artist.search(artist_name)
-    tracks = RSpotify::Track.search(track_name)
+    # # tracks = RSpotify::Track.search(track_name)
 
     seed_artists = artists.first.id if artists.any?
-    seed_tracks = tracks.first.id if tracks.any?
+    # # seed_tracks = tracks.first.id if tracks.any?
 
-    @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_artists: [seed_artists], seed_tracks: [seed_tracks], market: country_code)
+    @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_artists: [seed_artists])
     if @recommendations.save
       render :show
     else
@@ -30,6 +30,6 @@ class SpotifyTracksController < ApplicationController
   private
 
   def spotify_track_params
-    params.require(:spotify_track).permit(:genre, :age, :favorite_artist, :favorite_song)
+    params.require(:spotify_track).permit(:query)
   end
 end
