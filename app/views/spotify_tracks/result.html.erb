@@ -1,6 +1,8 @@
 <h1>Recommended Tracks</h1>
 <ul>
   <% @track_urls.each do |url| %>
-    <li><a href="<%= url %>" target="_blank">Listen on Spotify</a></li>
+  <% track_id = url.split("/").last %>
+  <iframe src="https://open.spotify.com/embed/track/<%= track_id %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   <% end %>
 </ul>
+
