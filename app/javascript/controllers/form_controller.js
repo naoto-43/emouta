@@ -1,20 +1,11 @@
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@rails/request.js"
-
 export default class extends Controller {
   static targets = ["query"]
 
   connect() {
     console.log("Form controller connected");
   }
-  
-  // setupListeners() {
-  //   console.log("Setting up listeners for form controller");
-  //   document.querySelectorAll('#artists button[data-artist-name]').forEach(button => {
-  //     button.removeEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを削除
-  //     button.addEventListener('click', this.fillQueryBound); // fillQueryBoundを使用してリスナーを設定
-  //   });
-  // }
 
   search(event) {
     event.preventDefault(); 
@@ -36,5 +27,35 @@ export default class extends Controller {
     const artistName = event.currentTarget.dataset.artistName;
     console.log("Artist Name:", artistName);
     this.queryTarget.value = artistName;
+  }
+
+  submit(event) {
+    console.log("submit");
+    event.preventDefault();
+  
+    const url = this.element.getAttribute('data-sp-tracks-path');
+    console.log(url);
+  
+    let formData = new FormData(this.element);
+  
+    fetch(url, {
+      method: 'POST',
+      body: formData,
+      headers: {
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.text(); 
+    })
+    .then(data => {
+      console.log(data);
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
   }
 }
