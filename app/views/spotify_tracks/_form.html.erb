@@ -1,7 +1,9 @@
 <%= form_with url: search_artists_path, id: "artist_search_form", method: :get, local: true, data: { controller: "form", action: "submit->form#submit", sp_tracks_path: spotify_tracks_path } do |form| %>
-  <%= form.text_field :query, id: "artist_query", autocomplete: "off", data: { form_target: "query", action: "input->form#search" } %>
-    <div id="artists" turbo-frame="artists">
-    <!-- 検索結果がここに表示されます -->
-  </div>
+  <% 5.times do |index| %>
+    <%= form.text_field :query, id: "artist_query_#{index}", name: "query[#{index}]", autocomplete: "off", data: { form_target: "query", action: "input->form#search", index: index } %>
+    <div id="artists_#{index}" turbo-frame="artists_#{index}">
+      <!-- 検索結果がここに表示されます -->
+    </div>
+  <% end %>
   <%= form.submit t('defaults.search'), class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700' %>
 <% end %>
