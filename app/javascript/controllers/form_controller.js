@@ -8,19 +8,23 @@ export default class extends Controller {
   }
 
   search(event) {
-    event.preventDefault(); 
-
-    const url = `${this.element.action}?query=${this.queryTarget.value}`;
+    event.preventDefault();
+    const query = event.target.value;
+    const index = event.target.dataset.index;
+  
+    const url = `${this.element.action}?query=${query}&index=${index}`;
     console.log(url);
     const options = {
-      responseKind: "turbo-stream",
+      headers: {
+        'Accept': 'text/vnd.turbo-stream.html',
+      }
     };
-    console.log(options);
-
-    get(url, options).then(response => {
-      console.log(response);
+  
+    fetch(url, options).then(response => response.text()).then(html => {
+      console.log(html);
     }).catch(error => console.log(error));
   }
+  
 
   fillQuery(event) {
     console.log("fillQuery triggered");
