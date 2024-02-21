@@ -30,8 +30,10 @@ export default class extends Controller {
   fillQuery(event) {
     console.log("fillQuery triggered");
     const artistName = event.currentTarget.dataset.artistName;
-    console.log("Artist Name:", artistName);
-    this.queryTarget.value = artistName;
+    const index = event.currentTarget.dataset.artistIndex;
+    console.log("Artist Name:", artistName, "Index:", index);
+  
+    document.querySelector(`#artist_query_${index}`).value = artistName;
   }
 
   submit(event) {
