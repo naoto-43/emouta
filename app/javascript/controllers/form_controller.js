@@ -9,6 +9,7 @@ export default class extends Controller {
 
   search(event) {
     event.preventDefault();
+
     const query = event.target.value;
     const index = event.target.dataset.index;
   
@@ -20,8 +21,8 @@ export default class extends Controller {
       }
     };
   
-    fetch(url, options).then(response => response.text()).then(html => {
-      console.log(html);
+    get(url, options).then(response => {
+      console.log(response);
     }).catch(error => console.log(error));
   }
   
