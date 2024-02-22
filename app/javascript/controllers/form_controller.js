@@ -1,19 +1,25 @@
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@rails/request.js"
 export default class extends Controller {
-  static targets = ["query"]
-
   connect() {
     console.log("Form controller connected");
   }
 
   search(event) {
     event.preventDefault();
-
-    const query = event.target.value;
-    const index = event.target.dataset.index;
   
-    const url = `${this.element.action}?query=${query}&index=${index}`;
+    const elementId = event.target.id;
+    const queryValue = event.target.value;
+    const index = event.target.dataset.index;
+    let url;
+  
+    if (elementId.includes("artist")) {
+      url = `${this.element.action}?artist_query=${queryValue}&index=${index}`;
+    }
+    else if (elementId.includes("track")) {
+      url = `${this.element.action}?track_query=${queryValue}&index=${index}`;
+    }
+    
     console.log(url);
     const options = {
       headers: {
@@ -24,8 +30,7 @@ export default class extends Controller {
     get(url, options).then(response => {
       console.log(response);
     }).catch(error => console.log(error));
-  }
-  
+  }  
 
   fillQuery(event) {
     console.log("fillQuery triggered");
