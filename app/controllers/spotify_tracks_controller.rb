@@ -4,8 +4,10 @@ class SpotifyTracksController < ApplicationController
   end
 
   def create
-    artist_names = params[:query].values 
+    artist_names = params[:artist_query].values 
     seed_artists = []
+    track_names = params[:query].values 
+    seed_tracks = []
   
     artist_names.each do |artist_name|
       artists = RSpotify::Artist.search(artist_name)
