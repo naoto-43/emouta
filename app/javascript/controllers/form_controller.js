@@ -34,6 +34,14 @@ export default class extends Controller {
     console.log("Artist Name:", artistName, "Index:", index);
   
     document.querySelector(`#artist_query_${index}`).value = artistName;
+    this.clearSearchResults(index);
+  }
+
+  clearSearchResults(index) {
+    const searchResultsContainer = document.querySelector(`#artists_${index}`);
+    if (searchResultsContainer) {
+      searchResultsContainer.innerHTML = '';
+    }
   }
 
   submit(event) {
