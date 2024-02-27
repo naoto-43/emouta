@@ -34,16 +34,23 @@ export default class extends Controller {
 
   fillQuery(event) {
     console.log("fillQuery triggered");
-    const artistName = event.currentTarget.dataset.artistName;
-    const index = event.currentTarget.dataset.artistIndex;
-    console.log("Artist Name:", artistName, "Index:", index);
+    const targetType = event.currentTarget.dataset.type; 
+    const name = event.currentTarget.dataset[`${targetType}Name`];
+    const index = event.currentTarget.dataset[`${targetType}Index`]; 
+    console.log(targetType, name, index);
+    console.log("Name:", name, "Index:", index, "Type:", targetType);
   
-    document.querySelector(`#artist_query_${index}`).value = artistName;
-    this.clearSearchResults(index);
-  }
+    if (targetType === 'artists') {
+      document.querySelector(`#artist_query_${index}`).value = name;
+    } else if (targetType === 'tracks') {
+      document.querySelector(`#track_query_${index}`).value = name;
+    }
 
-  clearSearchResults(index) {
-    const searchResultsContainer = document.querySelector(`#artists_${index}`);
+    this.clearSearchResults(targetType, index);
+  }
+  
+  clearSearchResults(type, index) {
+    const searchResultsContainer = document.querySelector(`#${type}_${index}`);
     if (searchResultsContainer) {
       searchResultsContainer.innerHTML = '';
     }
