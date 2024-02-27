@@ -1,17 +1,15 @@
 class SearchController < ApplicationController
-  def artists
-    artist_query = params[:artist_query]
+  def search
     @index = params[:index]
-    @artists = RSpotify::Artist.search(artist_query, limit: 5) if artist_query.present?
-    respond_to do |format|
-      format.turbo_stream
+    
+    if params[:artist_query].present?
+      @results = RSpotify::Artist.search(params[:artist_query], limit: 5)
+      @type = 'artists'
+    elsif params[:track_query].present?
+      @results = RSpotify::Track.search(params[:track_query], limit: 5)
+      @type = 'tracks'
     end
-  end
 
-  def tracks
-    track_query = params[:track_query]
-    @index = params[:index]
-    @tracks = RSpotify::Artist.search(track_query, limit: 5) if track_query.present?
     respond_to do |format|
       format.turbo_stream
     end
