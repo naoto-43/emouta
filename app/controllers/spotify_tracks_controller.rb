@@ -8,6 +8,11 @@ class SpotifyTracksController < ApplicationController
     seed_artists = params[:artist_id].values.reject(&:blank?)
     track_names = params[:track_query].values.reject(&:blank?)
     seed_tracks= params[:track_id].values.reject(&:blank?)
+
+    if seed_artists.length + seed_tracks.length >= 6
+      flash[:alert] = "アーティストとトラックの合計は5つまでです。" 
+      render :new, status: :unprocessable_entity and return
+    end
   
     if seed_artists.empty? && seed_tracks.empty?
       flash.now[:alert] = "Artists not found. Please try again."
