@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   resource :profile, only: %i[new create show edit update]
   resources :spotify_tracks, only: %i[new create]
   get 'spotify_tracks/result', to: 'spotify_tracks#result', as: :spotify_track_result
-  get 'search/search', to: 'search#search', as: :search_search
+  get 'spotify_tracks/search', to: 'spotify_tracks#search', as: :spotify_track_search
 end
