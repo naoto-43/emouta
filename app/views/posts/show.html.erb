@@ -19,8 +19,10 @@
         </div>
       </article>
       <br>
+      <% if user_signed_in? %>
       <%= link_to t('.back'), posts_path, class: 'btn btn-secondary' %>
       <%= link_to t('.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+      <% end %>
     </div>
   </div>
 </div>
