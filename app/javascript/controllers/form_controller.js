@@ -14,10 +14,10 @@ export default class extends Controller {
     let url;
   
     if (elementId.includes("artist")) {
-      url = `${this.element.action}?artist_query=${queryValue}&index=${index}`;
+      url = `search?artist_query=${queryValue}&index=${index}`;
     }
     else if (elementId.includes("track")) {
-      url = `${this.element.action}?track_query=${queryValue}&index=${index}`;
+      url = `search?track_query=${queryValue}&index=${index}`;
     }
     
     console.log(url);
@@ -41,9 +41,15 @@ export default class extends Controller {
     console.log("Name:", name, "Index:", index, "Type:", targetType);
   
     if (targetType === 'artists') {
+      const artistId = event.currentTarget.dataset.id; 
       document.querySelector(`#artist_query_${index}`).value = name;
+      document.querySelector(`#artist_id_${index}`).value = artistId;
+      console.log("Artist ID:", artistId); 
     } else if (targetType === 'tracks') {
+      const trackId = event.currentTarget.dataset.id; 
       document.querySelector(`#track_query_${index}`).value = name;
+      document.querySelector(`#track_id_${index}`).value = trackId;
+      console.log("Track ID:", trackId);
     }
 
     this.clearSearchResults(targetType, index);
@@ -62,27 +68,8 @@ export default class extends Controller {
   
     const url = this.element.getAttribute('data-sp-tracks-path');
     console.log(url);
-  
-    let formData = new FormData(this.element);
-  
-    fetch(url, {
-      method: 'POST',
-      body: formData,
-      headers: {
-        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-      },
-    })
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.text(); 
-    })
-    .then(data => {
-      console.log(data);
-    })
-    .catch(error => {
-      console.error('Error:', error);
-    });
+    form.action = form.getAttribute('data-sp-tracks-path');
+    
+    form.submit();
   }
 }
