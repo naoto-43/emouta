@@ -3,8 +3,18 @@
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
       <div class="flex items-center space-x-2"> 
-        <%= form.text_field :artist_query, id: "artist_query_#{index}", name: "artist_query[#{index}]", autocomplete: "off", class: "form-input", data: { action: "input->form#search", index: index } %>
-        <%= form.hidden_field :artist_id, id: "artist_id_#{index}", name: "artist_id[#{index}]" %>
+        <%= form.text_field :artist_query, 
+                            id: "artist_query_#{index}", 
+                            name: "artist_query[#{index}]", 
+                            value: @artist_names[index],
+                            autocomplete: "off", 
+                            class: "form-input", 
+                            data: { action: "input->form#search", index: index } %>
+        <%= form.hidden_field :artist_id, 
+                              id: "artist_id_#{index}", 
+                              name: "artist_id[#{index}]", 
+                              value: @seed_artists[index]
+                              %>
         <div id="artists_<%= index %>" turbo-frame="artists_<%= index %>">
           <!-- 検索結果がここに表示されます -->
         </div>      
@@ -16,8 +26,18 @@
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
       <div class="flex items-center space-x-2"> 
-        <%= form.text_field :track_query, id: "track_query_#{index}", name: "track_query[#{index}]", autocomplete: "off", class: "form-input", data: { action: "input->form#search", index: index } %>
-        <%= form.hidden_field :track_id, id: "track_id_#{index}", name: "track_id[#{index}]" %>
+        <%= form.text_field :track_query, 
+                            id: "track_query_#{index}", 
+                            name: "track_query[#{index}]", 
+                            value: @track_names[index],
+                            autocomplete: "off", 
+                            class: "form-input", 
+                            data: { action: "input->form#search", index: index } %>
+        <%= form.hidden_field :track_id, 
+                              id: "track_id_#{index}", 
+                              name: "track_id[#{index}]", 
+                              value: @seed_tracks[index]
+                              %>
         <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>">
           <!-- 検索結果がここに表示されます -->
         </div>      
