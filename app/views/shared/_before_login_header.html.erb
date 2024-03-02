@@ -1,9 +1,8 @@
 <header>
-    <nav class="bg-white dark:bg-gray-800 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+    <nav class="bg-black dark:bg-gray-100 fixed w-full z-20 top-0 start-0 border-b border-gray-00">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <%= link_to root_path, class: "flex items-center space-x-3 rtl:space-x-reverse" do %>
-                <%= image_tag("https://flowbite.com/docs/images/logo.svg", alt: "Flowbite Logo", class: "h-8") %>
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">emouta</span>
+                <span id="rogo" class="self-center text-2xl font-semibold whitespace-nowrap">emouta</span>
             <% end %>
             <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                 <%= link_to new_user_session_path, class: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800" do %>
@@ -19,13 +18,13 @@
                 </button>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500" aria-current="page"><%= t('defaults.post_listings') %></a>
-                    </li>
-                    <li>
-                        <a href="#" class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"><%= t('defaults.ai_music_recommendations') %></a>
-                    </li>
+                <ul id="header_link" class="flex flex-col p-4 md:p-0 mt-4 font-semibol border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                <li>
+                    <%= link_to t('defaults.post_listings'), root_path, data: { turbo: false } %>
+                </li>
+                <li>
+                    <%= link_to t('defaults.ai_music_recommendations'), new_spotify_track_path, data: { turbo: false } %>
+                </li>
                 </ul>
             </div>
         </div>
