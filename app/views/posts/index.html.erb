@@ -1,11 +1,11 @@
-<div class="container padding-top-custom">
-  <div class="row">
-    <div class="col-12">
-      <div class="row">
+<div class="container padding-top-custom mx-auto">
+  <div class="flex flex-col items-center justify-center">
+    <div class="w-full">
+      <div class="flex flex-col items-center">
         <% if @posts.present? %>
-          <%= render @posts %>
+          <%= render @posts %> 
         <% else %>
-          <p><%= t('.no_result') %></p>
+          <p class="text-center"><%= t('.no_result') %></p>
         <% end %>
       </div>
     </div>
