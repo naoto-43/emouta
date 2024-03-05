@@ -6,7 +6,7 @@ class CreatePosts < ActiveRecord::Migration[7.1]
       t.string :artist, null: false       # アーティスト名
       t.text :coment         # コメント
       t.string :link_to_music # 音楽へのリンク
-      t.integer :design, null: false      # デザイン（整数で表現）
+cc
       t.references :user, null: false, foreign_key: true
 
       t.timestamps

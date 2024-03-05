@@ -19,17 +19,17 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
-
   devise:
     sessions:
       new:
         login: 'ログイン'
         remember_me: 'パスワードを記憶する'
   posts:
+    index:
+      new_post_button:
+        create_post: '投稿'
     new:
       title: '投稿作成'
-      new_post_button: '新規作成'
-      create_post: '投稿'
     show:
       title: '投稿詳細'
     edit:
