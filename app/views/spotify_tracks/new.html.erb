@@ -1,10 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h2><%= t('defaults.ai_music_recommendations') %></h2>
+<div class="container mx-auto">
+  <div class="flex flex-col items-center">
+    <div class="col-lg-8 offset-lg-2 w-full max-w-4xl"> 
+      <h2 class="text-center"><%= t('defaults.spotify_music_recommendations') %></h2>
       <br>
-      <h2><%= "アーティスト・楽曲からspotifyでおすすめの曲を10件紹介します" %></h2>
-      <h2><%= "アーティスト・楽曲は合計5つまで入力できます" %></h2>
+      <h2 class="text-center"><%= t('spotify_tracks.new.recommendation_intro') %></h2>
+      <h2 class="text-center"><%= t('spotify_tracks.new.artist_song_limit') %></h2>
       <br>
       <%= render 'form', { spotify_track: @spotify_track } %>
     </div>
