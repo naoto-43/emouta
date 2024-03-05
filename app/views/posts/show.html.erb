@@ -3,18 +3,22 @@
   <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
     <div id="post-id-<%= @post.id %>" class="card card-side bg-base-100 shadow-xl" style="min-height: 300px; background-color: white;">
       <div class="card-body flex flex-row"> <!-- ここでフレックスボックスを横並びに設定 -->
-        <div class="content flex-1" style="flex: 1 1 65%;"> <!-- ここでコンテンツに65%の幅を設定 -->
-          <h4 class="card-title" style="font-size: 18px; color: black;">
-              <p><%= simple_format(@post.lyricks) %></p>
-          </h4>     
-          <ul class="list-inline" style="color: black;">
-            <li class="list-inline-item"><%= @post.song_title %></li>
-            <li class="list-inline-item">by  <%= @post.artist %></li>
-          </ul>
+        <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center;"> <!-- 中央寄せにするために align-items: center; を追加 -->
+          <div>
+            <h4 class="card-title" style="font-size: 18px; color: black;">
+              <%= simple_format(@post.lyricks) %>
+            </h4>
+          </div>
+          <div>
+            <ul class="list-inline" style="color: black; padding-left: 0;"> <!-- リストのパディングをリセットして、中央寄せを正確に -->
+              <li class="list-inline-item"><%= @post.song_title %></li>
+              <li class="list-inline-item">by <%= @post.artist %></li>
+            </ul>
+          </div>
         </div>
         <div class="spotify-embed" style="flex: 1 1 35%;"> <!-- ここでSpotify埋め込みに35%の幅を設定 -->
           <% if @post.link_to_music.include?("spotify.com") %>
-            <iframe src="https://open.spotify.com/embed/track/<%= @post.link_to_music.split("/").last %>" class="w-full h-full" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+            <iframe src="https://open.spotify.com/embed/track/<%= @post.link_to_music.split("/").last %>"  width="100%" height="352px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
             <!-- 埋め込みがない場合でもエリアを確保 -->
           <% end %>
