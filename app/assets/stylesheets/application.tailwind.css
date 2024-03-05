@@ -1,5 +1,5 @@
 @import "header";
-@import "embed_tracks";
+@import "result";
 @import "flowbite";
 
 @tailwind base;
