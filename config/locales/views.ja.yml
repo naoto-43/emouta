@@ -8,7 +8,7 @@ ja:
     didnt_receive_unlock_instructions: 'アンロック指示が届いていない方'
     sign_in_with_provider: '%{provider}でサインイン'
     post_listings: '投稿一覧'
-    ai_music_recommendations: 'AI楽曲紹介'
+    spotify_music_recommendations: 'Spotify楽曲紹介'
     search: '検索'
     message:
       created: "%{item}が正常に作成されました。"
@@ -26,8 +26,8 @@ ja:
   posts:
     new:
       title: '投稿作成'
-      new_post_button: 
-        create_post: '投稿'
+      new_post_button: '新規作成'
+      create_post: '投稿'
     show:
       title: '投稿詳細'
     edit:
@@ -40,6 +40,11 @@ ja:
     update:
   spotify_tracks:
     new:
+      title: 'spotify楽曲紹介'
+      recommendation_intro: 'spotifyでおすすめの曲を10件紹介します。'
+      artist_song_limit: 'アーティスト・楽曲は合計5つまで入力できます。'
+      artist: 'アーティスト'
+      track: '楽曲'
     create:
     show:
   shared:

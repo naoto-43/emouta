@@ -18,8 +18,3 @@ ja:
         link_to_music: 'リンク'
         design: 'デザイン'
       profile:
-      spotify_track:
-        genre: 'ジャンル'
-        age: '年代'
-        favorite_artist: '好きなアーティスト'
-        favorite_song: '好きな曲'
