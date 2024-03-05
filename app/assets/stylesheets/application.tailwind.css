@@ -6,33 +6,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/* button[data-action="click->form#fillQuery"] {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-  color: blue;
-  cursor: pointer;
-}
-
 .new-post-button {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  right: 60px;
   z-index: 100;
 }
 
-.radio-options {
+/* .radio-options {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
+} */
 
-.design-option {
+/* .design-option {
   display: none;
-}
+} */
 
-.design-label {
+/* .design-label {
   flex-grow: 1;
   padding: 10px;
   margin: 2px;

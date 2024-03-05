@@ -6,9 +6,9 @@ class Post < ApplicationRecord
   validates :artist, presence: true, length: { maximum: 255 }
   validates :coment, length: { maximum: 65_535 }
   validates :link_to_music, length: { maximum: 255 }
-  validates :design,  presence: true
+  # validates :design,  presence: true
 
-  enum design: { red: 0, blue: 1, yellow: 2, green: 3 }
+  # enum design: { red: 0, blue: 1, yellow: 2, green: 3 }
 
   def split_id_from_spotify_url
     # URLからクエリパラメータを除去し、必要なID部分のみを抽出

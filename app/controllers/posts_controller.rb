@@ -43,6 +43,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:lyricks, :song_title, :artist, :link_to_music, :design)
+    params.require(:post).permit(:lyricks, :song_title, :artist, :link_to_music)
   end
 end
