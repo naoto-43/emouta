@@ -15,7 +15,6 @@ class ProfilesController < ApplicationController
       flash.now['danger'] = t('defaults.message.not_updated', item: User.model_name.human)
       render :edit, status: :unprocessable_entity
     end
-    end
   end
 
   private
