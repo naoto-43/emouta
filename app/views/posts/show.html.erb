@@ -1,5 +1,5 @@
 <div class="flex justify-center">
-  <div class="w-8/12 mb-3" style="min-height: 300px; overflow-y: auto; text-color: black;">
+  <div class="w-8/12 mb-3 mt-5" style="min-height: 300px; overflow-y: auto; text-color: black;">
   <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
     <div id="post-id-<%= @post.id %>" class="card card-side bg-base-100 shadow-xl" style="min-height: 300px; background-color: white;">
       <div class="card-body flex flex-row"> 
@@ -26,8 +26,10 @@
       </div>
     </div>
       <% if user_signed_in? %>
-        <%= link_to t('.back'), posts_path, class: 'btn btn-secondary' %>
-        <%= link_to t('.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+        <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">
+          <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
+          <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+        </div>
       <% end %>
   </div>
 </div>
