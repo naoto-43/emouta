@@ -1,5 +1,5 @@
 <%= form_with url: spotify_tracks_path, id: "search_form", local: true, data: { controller: "form" } do |form| %>
-  <h2><%= t('spotify_tracks.new.artist') %></h2>
+  <h2><%= t('defaults.artist') %></h2>
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
       <div class="flex items-center space-x-2"> 
@@ -22,7 +22,7 @@
     <% end %>
   </div>
   <br>
-  <h2><%= t('spotify_tracks.new.track') %></h2>
+  <h2><%= t('defaults.track') %></h2>
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
       <div class="flex items-center space-x-2"> 

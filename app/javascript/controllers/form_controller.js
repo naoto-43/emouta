@@ -1,36 +1,41 @@
 import { Controller } from "@hotwired/stimulus"
 import { get } from "@rails/request.js"
+
 export default class extends Controller {
-  connect() {
-    console.log("Form controller connected");
-  }
+  timeout = null;
 
   search(event) {
     event.preventDefault();
-  
-    const elementId = event.target.id;
-    const queryValue = event.target.value;
-    const index = event.target.dataset.index;
-    let url;
-  
-    if (elementId.includes("artist")) {
-      url = `search?artist_query=${queryValue}&index=${index}`;
+
+    if (this.timeout) {
+      clearTimeout(this.timeout);
     }
-    else if (elementId.includes("track")) {
-      url = `search?track_query=${queryValue}&index=${index}`;
-    }
-    
-    console.log(url);
-    const options = {
-      headers: {
-        'Accept': 'text/vnd.turbo-stream.html',
+
+    this.timeout = setTimeout(() => {
+      const elementId = event.target.id;
+      const queryValue = event.target.value;
+      const index = event.target.dataset.index;
+      let url;
+
+      if (elementId.includes("artist")) {
+        url = `search?artist_query=${queryValue}&index=${index}`;
+      } else if (elementId.includes("track")) {
+        url = `search?track_query=${queryValue}&index=${index}`;
       }
-    };
-  
-    get(url, options).then(response => {
-      console.log(response);
-    }).catch(error => console.log(error));
-  }  
+
+      console.log(url);
+
+      const options = {
+        headers: {
+          'Accept': 'text/vnd.turbo-stream.html',
+        }
+      };
+
+      get(url, options).then(response => {
+        console.log(response);
+      }).catch(error => console.log(error));
+    }, 600);
+  }
 
   fillQuery(event) {
     console.log("fillQuery triggered");
