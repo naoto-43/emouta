@@ -12,7 +12,7 @@ document.addEventListener('turbo:load', function() {
   function updateSpotifyEmbed(url) {
     var spotifyId = extractSpotifyId(url);
     if (spotifyId) {
-      var embedCode = `<iframe src="https://open.spotify.com/embed/track/${spotifyId}" width="300" height="352px" style="border-radius: 15px;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
+      var embedCode = `<iframe src="https://open.spotify.com/embed/track/${spotifyId}" width="100%" height="352px" style="border-radius: 15px;" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`;
       embedContainer.innerHTML = embedCode;
     } else {
       embedContainer.innerHTML = '';
