@@ -4,7 +4,7 @@ document.addEventListener('turbo:load', function() {
 
   // Spotify IDを抽出する関数
   function extractSpotifyId(url) {
-    var match = url.match(/(?:spotify:|https:\/\/[a-z]+\.spotify\.com\/)(track|playlist)\/([a-zA-Z0-9]+)/);
+    var match = url.match(/(?:spotify:|https:\/\/[a-z]+\.spotify\.com\/(?:[^\/]+\/)?)(track|playlist)\/([a-zA-Z0-9]+)/);
     return match ? match[2] : null;
   }
 
