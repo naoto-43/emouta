@@ -8,6 +8,7 @@
                 <%= simple_format(truncate(post.lyricks, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
             </h4>     
             <p class="card-text"><%= simple_format(post.song_title) %></p>
+            <p class="card-text"><%= simple_format(post.artist) %></p>
           </div>
           <div class="spotify-embed" style="flex: 1 1 35%;">
             <% if post.link_to_music.include?("spotify.com") %>
