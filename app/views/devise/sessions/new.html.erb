@@ -4,19 +4,24 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="mt-4">
-        <%= f.label :email, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.label :name, class: "block text-sm font-medium" %>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
+      </div>
+
+      <div class="mt-4">
+        <%= f.label :email, class: "block text-sm font-medium" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
       </div>
 
       <div class="mt-4">
-        <%= f.label :password, class: "block text-sm font-medium text-gray-700" %>
+        <%= f.label :password, class: "block text-sm font-medium" %>
         <%= f.password_field :password, autocomplete: "current-password", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
       </div>
 
       <% if devise_mapping.rememberable? %>
         <div class="mt-4">
           <%= f.check_box :remember_me, class: "rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-500 focus:ring-opacity-50" %>
-          <%= f.label :remember_me, t('devise.sessions.new.remember_me'), class: "ml-2 text-sm font-medium text-gray-700" %>
+          <%= f.label :remember_me, t('devise.sessions.new.remember_me'), class: "ml-2 text-sm font-medium" %>
         </div>
       <% end %>
 
