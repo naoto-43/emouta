@@ -7,6 +7,8 @@ class User < ApplicationRecord
   has_many :spotify_tracks
   mount_uploader :avatar, AvatarUploader
 
+  validates :name, presence: true
+
   def own?(object)
     id == object.user_id
   end

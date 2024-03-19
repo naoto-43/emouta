@@ -4,11 +4,6 @@
 
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="mt-4">
-        <%= f.label :name, class: "block text-sm font-medium" %>
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
-      </div>
-
-      <div class="mt-4">
         <%= f.label :email, class: "block text-sm font-medium" %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" %>
       </div>
