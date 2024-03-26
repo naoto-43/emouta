@@ -1,3 +1,4 @@
+// 投稿デザイン用のjs
 document.addEventListener('turbo:load', function() {
   // デザインオプションの変更時のイベントハンドラーを設定
   document.querySelectorAll('.design-option').forEach(function(element) {
