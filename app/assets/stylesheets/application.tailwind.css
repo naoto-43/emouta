@@ -1,6 +1,7 @@
 @import "header";
 @import "result";
 @import "flowbite";
+@import "pagination";
 
 @tailwind base;
 @tailwind components;
