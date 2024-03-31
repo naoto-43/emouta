@@ -1,0 +1,16 @@
+<h2>Comments</h2>
+<% @comments.each do |comment| %>
+  <p><%= comment.comment %></p>
+  <!-- ここに編集リンクを追加することもできます -->
+<% end %>
+
+<h3>New Comment</h3>
+<%= form_with(model: [@post, @new_comment], local: true) do |form| %>
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

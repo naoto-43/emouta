@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  belongs_to :post
+  has_many :post_comments, dependent: :destroy
   belongs_to :user
 
   validates :lyricks, presence: true, length: { maximum: 65_535 }
