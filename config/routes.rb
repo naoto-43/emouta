@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root "posts#index"
 
   resources :users, only: %i[new create]
-  resources :posts
+  resources :posts do
+    resources :post_comments, only: [:create, :edit, :update]
+  end
   resource :profile, only: %i[new create show edit update]
   resources :spotify_tracks, only: %i[new create]
   get 'spotify_tracks/result', to: 'spotify_tracks#result', as: :spotify_track_result
