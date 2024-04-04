@@ -25,12 +25,12 @@
         </div>
       </div>
     </div>
-      <% if user_signed_in? %>
-        <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">
-          <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
-          <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
-        </div>
-      <% end %>
+    <% if user_signed_in? %>
+      <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">
+        <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
+        <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+  <%= render 'posts/comment' %>
   </div>
-  <%= render 'comment' %>
 </div>
