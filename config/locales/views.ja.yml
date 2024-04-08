@@ -9,7 +9,7 @@ ja:
     sign_in_with_provider: '%{provider}でサインイン'
     post_listings: '投稿一覧'
     spotify_music_recommendations: 'Spotify楽曲紹介'
-    create_post: '投稿'
+    post: '投稿'
     search: '検索'
     artist: 'アーティスト'
     track: '楽曲'

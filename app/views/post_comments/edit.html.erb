@@ -1,12 +1,17 @@
-<h2>Edit Comment</h2>
+<div class="flex justify-center">
+  <div class="w-8/12 mb-3 mt-5" style="min-height: 300px; overflow-y: auto; text-color: black;">
+    <h2 class="text-2xl font-bold text-gray-900 mb-6">Edit Comment</h2>
 
-<%= form_with(model: [ @post, @comment ], local: true) do |form| %>
-  <div class="field">
-    <%= form.label :comment %>
-    <%= form.text_area :comment %>
-  </div>
+    <%= form_with(model: [ @post, @comment ], local: true, class: "w-full max-w-lg") do |form| %>
+      <div class="mb-4">
+        <%= form.label :comment, class: "block text-gray-700 text-sm font-bold mb-2" %>
+        <%= form.text_area :comment, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 4 %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit "Update Comment" %>
+      <div class="actions">
+        <%= form.submit "Update Comment", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
+

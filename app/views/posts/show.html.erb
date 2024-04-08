@@ -31,6 +31,8 @@
         <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
       </div>
     <% end %>
-  <%= render 'posts/comment' %>
+  <h2 class="text-xl font-semibold mb-4"><%= t('activerecord.models.comment') %></h2>
+  <%= render 'post_comments/comment' %>
+  <%= render 'post_comments/new_comment' %>
   </div>
 </div>
