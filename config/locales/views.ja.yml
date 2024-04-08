@@ -34,6 +34,7 @@ ja:
       title: '投稿作成'
     show:
       title: '投稿詳細'
+      new_comment: '新規コメント'
     edit:
       title: '投稿編集'
   profile:
