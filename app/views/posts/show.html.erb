@@ -27,8 +27,8 @@
     </div>
     <% if user_signed_in? %>
       <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">
-        <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
         <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
+        <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
       </div>
     <% end %>
     <h2 class="text-xl font-semibold mb-4"><%= t('activerecord.models.comment') %></h2>

@@ -6,10 +6,8 @@ class PostCommentsController < ApplicationController
     @comment = @post.post_comments.new(post_comment_params)
     @comment.user = current_user
     if @comment.save
-      binding.pry
       redirect_to @post, notice: 'Comment was successfully created.'
     else
-      binding.pry
       @comments = @post.post_comments.reload
       @new_comment = @comment
       render 'posts/show'
@@ -30,6 +28,13 @@ class PostCommentsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = @post.post_comments.find(params[:id])
+    @comment.destroy!
+    redirect_to @post, success: t('defaults.message.deleted', item: Comment.model_name.human)
   end
   
   private
