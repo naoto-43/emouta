@@ -15,6 +15,7 @@ ja:
     track: '楽曲'
     delete: '削除'
     edit: '編集'
+    update: '更新'
     message:
       created: "%{item}が正常に作成されました。"
       not_created: "%{item}を作成できませんでした。"

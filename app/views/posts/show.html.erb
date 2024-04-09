@@ -1,6 +1,6 @@
 <div class="flex justify-center">
   <div class="w-8/12 mb-3 mt-5" style="min-height: 300px; overflow-y: auto; text-color: black;">
-  <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
+    <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
     <div id="post-id-<%= @post.id %>" class="card card-side bg-base-100 shadow-xl" style="min-height: 300px; background-color: white;">
       <div class="card-body flex flex-row"> 
         <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center;"> 
@@ -31,8 +31,12 @@
         <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
       </div>
     <% end %>
-  <h2 class="text-xl font-semibold mb-4"><%= t('activerecord.models.comment') %></h2>
-  <%= render 'post_comments/comment' %>
-  <%= render 'post_comments/new_comment' %>
+    <h2 class="text-xl font-semibold mb-4"><%= t('activerecord.models.comment') %></h2>
+    <div class="mt-8">
+      <% @comments.each do |comment| %>
+        <%= render 'post_comments/comment', comment: comment, post: @post %>
+      <% end %>
+      <%= render 'post_comments/new_comment' %>
+    </div>
   </div>
 </div>

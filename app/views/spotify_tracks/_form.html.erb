@@ -1,4 +1,4 @@
-<%= form_with url: spotify_tracks_path, id: "search_form", local: true, data: { controller: "form" } do |form| %>
+<%= form_with url: spotify_tracks_path, local: true, data: { controller: "form" } do |form| %>
   <h2 class="text-xl font-semibold mb-4"><%= t('defaults.artist') %></h2>
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
@@ -16,7 +16,7 @@
                               value: @seed_artists[index]
                               %>
         <div id="artists_<%= index %>" turbo-frame="artists_<%= index %>" class="mt-2">
-          <!-- 検索結果がここに表示されます -->
+          <!-- 検索結果 -->
         </div>      
       </div>
     <% end %>

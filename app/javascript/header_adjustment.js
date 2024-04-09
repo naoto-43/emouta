@@ -10,9 +10,7 @@ document.addEventListener('turbo:load', function() {
       }
   }
 
-  // ウィンドウサイズが変更された時にも調整を適用
   window.addEventListener('resize', adjustLayout);
 
-  // 初回読み込み時にレイアウト調整を実行
   adjustLayout();
 });
