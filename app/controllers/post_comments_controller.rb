@@ -34,7 +34,12 @@ class PostCommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.post_comments.find(params[:id])
     @comment.destroy!
-    redirect_to @post, success: t('defaults.message.deleted', item: Comment.model_name.human)
+    respond_to do |format|
+      format.html { redirect_to @post, notice: t('defaults.message.deleted', item: Comment.model_name.human) }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.remove("comment_#{params[:id]}")
+      end
+    end
   end
   
   private
