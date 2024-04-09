@@ -1,7 +1,7 @@
 <%= form_with(model: [@post, @new_comment], local: true, class: "bg-white shadow rounded-lg p-4") do |form| %>
   <div class="mb-4">
-    <%= form.label t('posts.show.new_comment') , class: "block text-gray-700 text-sm font-bold mb-2" %>
-    <%= form.text_area t('posts.show.new_comment') , class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 4 %>
+    <%= form.label :comment, t('posts.show.new_comment') , class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :comment, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline", rows: 4 %>
   </div>
   <div class="actions">
     <%= form.submit t('defaults.post'), class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
