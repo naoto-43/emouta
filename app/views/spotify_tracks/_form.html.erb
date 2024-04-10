@@ -2,7 +2,7 @@
   <h2 class="text-xl font-semibold mb-4"><%= t('defaults.artist') %></h2>
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
-      <div class="flex  items-center space-x-2"> 
+      <div class="flex flex-col items-start space-y-2">
         <%= form.text_field :artist_query, 
                             id: "artist_query_#{index}", 
                             name: "artist_query[#{index}]", 
@@ -15,7 +15,7 @@
                               name: "artist_id[#{index}]", 
                               value: @seed_artists[index]
                               %>
-        <div id="artists_<%= index %>" turbo-frame="artists_<%= index %>" class="mt-2">
+        <div id="artists_<%= index %>" turbo-frame="artists_<%= index %>" class="w-full">
           <!-- 検索結果 -->
         </div>      
       </div>
@@ -25,7 +25,7 @@
   <h2 class="text-xl font-semibold mb-4"><%= t('defaults.track') %></h2>
   <div class="flex flex-wrap gap-4"> 
     <% 5.times do |index| %>
-      <div class="flex items-center space-x-2"> 
+      <div class="flex flex-col items-start space-y-2">
         <%= form.text_field :track_query, 
                             id: "track_query_#{index}", 
                             name: "track_query[#{index}]", 
@@ -38,7 +38,7 @@
                               name: "track_id[#{index}]", 
                               value: @seed_tracks[index]
                               %>
-        <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="mt-2">
+        <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="w-full">
           <!-- 検索結果がここに表示されます -->
         </div>      
       </div>

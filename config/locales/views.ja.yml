@@ -30,7 +30,6 @@ ja:
         remember_me: 'パスワードを記憶する'
   posts:
     index:
-      new_post_button:
     new:
       title: '投稿作成'
     show:
