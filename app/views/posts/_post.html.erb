@@ -16,9 +16,10 @@
                 <iframe src="https://open.spotify.com/embed/track/<%= post.link_to_music.split("/").last %>" class="w-full" height="232px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               <% else %>
                 <!-- 埋め込みがない場合でもエリアを確保 -->
+                <div style="min-height: 232px;"></div>
               <% end %>
-              <p class="card-text text-right" style="margin: 0;"><%= post.user.name %></p>
             </div>
+            <p class="card-text text-right" style="margin: 0;"><%= post.user.name %></p>
           </div>
         </div>
       </div>
