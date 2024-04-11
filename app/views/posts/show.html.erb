@@ -3,30 +3,34 @@
     <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
     <div id="post-id-<%= @post.id %>" class="card card-side bg-base-100 shadow-xl" style="background-color: white;">
       <div class="card-body flex flex-row"> 
-        <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center;"> 
+
+        <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-top: 20px;"> 
           <div>
             <h4 class="card-title" style="font-size: 18px; color: black;">
               <%= simple_format(@post.lyricks) %>
             </h4>
           </div>
           <div>
-            <ul class="list-inline" style="color: black; padding-left: 0;"> 
+            <ul class="list-inline" style="color: black;"> 
               <li class="list-inline-item"><%= @post.song_title %></li>
               <li class="list-inline-item">by <%= @post.artist %></li>
             </ul>
           </div>
         </div>
+
         <div class="spotify-embed" style="flex: 1 1 35%;"> 
           <% if @post.link_to_music.include?("spotify.com") %>
             <iframe src="https://open.spotify.com/embed/track/<%= @post.link_to_music.split("/").last %>"  width="100%" height="352px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
           <% else %>
-          <!-- 埋め込みがない場合のエリア -->
+            <!-- 埋め込みがない場合のエリア -->
             <div style="min-height: 352px;"></div>
           <% end %>
+          <div class="card-text text-right" style="padding-top: 20px; color: black;"><%= @post.user.name %></div>
         </div>
-        <p class="card-text text-right" style="margin: 0;"><%= @post.user.name %></p>
       </div>
     </div>
+
+
     <% if user_signed_in? %>
       <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">
         <%= link_to t('defaults.edit'), edit_post_path(@post), class: 'btn btn-primary' %>
