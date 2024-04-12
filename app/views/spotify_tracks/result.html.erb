@@ -1,5 +1,7 @@
-<h1><%= t('defaults.artist') %> - <%= @artist_names %></h1>
-<h1><%= t('defaults.track') %> - <%= @track_names %></h1>
+<div style="text-align: center;" >
+  <h1><%= t('defaults.artist') %> - <%= @artist_names %></h1>
+  <h1><%= t('defaults.track') %> - <%= @track_names %></h1>
+</div>
 <br>
 <ul class="tracks-container">
   <% @track_urls.each do |url| %>

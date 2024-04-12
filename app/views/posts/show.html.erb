@@ -1,14 +1,11 @@
-<div class="flex justify-center">
-  <div class="w-8/12 mb-3 mt-5" style="overflow-y: auto; text-color: black;">
+<div class="flex justify-center text-color: black;">
+  <div class="w-8/12 mb-3 mt-5" style="overflow-y: auto;">
     <h1 style="font-size: 32px; text-align: left;"><%= t('.title') %></h1>
     <div id="post-id-<%= @post.id %>" class="card card-side bg-base-100 shadow-xl" style="background-color: white;">
       <div class="card-body flex flex-row"> 
-
-        <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding-top: 20px;"> 
-          <div>
-            <h4 class="card-title" style="font-size: 18px; color: black;">
-              <%= simple_format(@post.lyricks) %>
-            </h4>
+        <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; font-family: 'IBM Plex Sans JPu', sans-serif;"> 
+          <div class="card-title" style="flex-grow: 1; display: flex; align-items: center; font-size: 20px; color: black; width: 100%;">
+            <%= simple_format(@post.lyricks) %>
           </div>
           <div>
             <ul class="list-inline" style="color: black;"> 
@@ -37,8 +34,8 @@
         <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
       </div>
     <% end %>
-    <h2 class="text-xl font-semibold mb-4"><%= t('activerecord.models.comment') %></h2>
-    <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-4" style="margin-top: 40px;"><%= t('activerecord.models.comment') %></h2>
+    <div>
       <% @comments.each do |comment| %>
         <%= render 'post_comments/comment', comment: comment, post: @post %>
       <% end %>
