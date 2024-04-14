@@ -1,31 +1,8 @@
 <%= form_with url: spotify_tracks_path, local: true, data: { controller: "form" } do |form| %>
-  <h2 class="text-xl font-semibold mb-4"><%= t('defaults.artist') %></h2>
-  <div class="flex flex-wrap gap-4"> 
+  <h2 class="text-xl font-semibold mb-4 text-center"><%= t('defaults.track') %></h2>
+  <div class="flex flex-wrap justify-center gap-4"> 
     <% 5.times do |index| %>
-      <div class="flex flex-col items-start space-y-2">
-        <%= form.text_field :artist_query, 
-                            id: "artist_query_#{index}", 
-                            name: "artist_query[#{index}]", 
-                            value: @artist_names[index],
-                            autocomplete: "off", 
-                            class: "form-input border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500", 
-                            data: { action: "input->form#search", index: index } %>
-        <%= form.hidden_field :artist_id, 
-                              id: "artist_id_#{index}", 
-                              name: "artist_id[#{index}]", 
-                              value: @seed_artists[index]
-                              %>
-        <div id="artists_<%= index %>" turbo-frame="artists_<%= index %>" class="w-full">
-          <!-- 検索結果 -->
-        </div>      
-      </div>
-    <% end %>
-  </div>
-  <br>
-  <h2 class="text-xl font-semibold mb-4"><%= t('defaults.track') %></h2>
-  <div class="flex flex-wrap gap-4"> 
-    <% 5.times do |index| %>
-      <div class="flex flex-col items-start space-y-2">
+      <div class="flex flex-col items-center space-y-2">
         <%= form.text_field :track_query, 
                             id: "track_query_#{index}", 
                             name: "track_query[#{index}]", 
@@ -44,5 +21,7 @@
       </div>
     <% end %>
   </div>
-  <%= form.submit t('defaults.search'), class: 'mt-4 px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition-colors duration-200 ease-in-out' %>
+  <div class="flex justify-center mt-4">
+    <%= form.submit t('defaults.search'), class: 'px-4 py-2 bg-blue-500 text-white font-bold rounded-md hover:bg-blue-700 transition-colors duration-200 ease-in-out' %>
+  </div>
 <% end %>
