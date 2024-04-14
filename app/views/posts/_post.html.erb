@@ -19,7 +19,6 @@
               <% if post.link_to_music.include?("spotify.com") %>
                 <iframe src="https://open.spotify.com/embed/track/<%= post.link_to_music.split("/").last %>" class="w-full" height="232px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
               <% else %>
-                <!-- 埋め込みがない場合でもエリアを確保 -->
                 <% images = ['投稿アイコン１.png', '投稿アイコン２.png', '投稿アイコン３.png', '投稿アイコン４.png'] %>
                 <%= image_tag(images.sample, width: '320', height: '232', style: 'object-fit: cover;') %>
               <% end %>
