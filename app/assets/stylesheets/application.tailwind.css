@@ -1,11 +1,19 @@
 @import "header";
-@import "result";
+@import "spotify";
 @import "flowbite";
 @import "pagination";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-image: url('background.png'); /* Railsのアセットパイプラインを通じて画像を参照 */
+  background-size: cover; /* 画像を画面全体にフィットさせる */
+  background-position: center; /* 画像を中央に配置 */
+  background-repeat: no-repeat; /* 画像の繰り返し無し */
+  background-attachment: fixed; /* 背景画像をビューポートに固定 */
+}
 
 .new-post-button {
   position: fixed;

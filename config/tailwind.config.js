@@ -24,6 +24,5 @@ module.exports = {
     require('flowbite/plugin')
   ],
   daisyui: {
-    themes: ["night"],
   }
 }
