@@ -8,11 +8,11 @@
 @tailwind utilities;
 
 body {
-  background-image: url('background.png'); /* Railsのアセットパイプラインを通じて画像を参照 */
-  background-size: cover; /* 画像を画面全体にフィットさせる */
-  background-position: center; /* 画像を中央に配置 */
-  background-repeat: no-repeat; /* 画像の繰り返し無し */
-  background-attachment: fixed; /* 背景画像をビューポートに固定 */
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
 }
 
 .new-post-button {
@@ -21,31 +21,3 @@ body {
   right: 60px;
   z-index: 100;
 }
-
-/* .radio-options {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-} */
-
-/* .design-option {
-  display: none;
-} */
-
-/* .design-label {
-  flex-grow: 1;
-  padding: 10px;
-  margin: 2px;
-  cursor: pointer;
-  color: rgb(0, 0, 0);
-  text-align: center;
-  border-radius: 4px; /* 角を丸くする（オプション） */
-/* } */
-
-/* .selected-design {
-  border: 2px solid red;
-} */
-
-/* .mouseover-style {
-  opacity: 0.8; /* 透明度を下げる、または他の視覚効果 */
-/* } */ 
