@@ -5,17 +5,22 @@
   gap: 8px;
   margin-top: 16px;
   margin-bottom: 16px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
 }
 
 .pagination a, .pagination span {
   padding: 8px 16px;
   border-radius: 4px;
-  color: #eec374;
+  color: #f3f3f3;
   text-decoration: none;
 }
 
 .pagination a:hover {
-  background-color: #f3f3f3;
+  background-color: #06111a;
   color: #ffa500;
 }
 
