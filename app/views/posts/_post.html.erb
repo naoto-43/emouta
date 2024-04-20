@@ -13,6 +13,15 @@
                 <li class="list-inline-item">by <%= post.artist %></li>
               </ul>
             </div>
+            <% if post.tags.any? %>
+              <ul class="list-inline" style="color: black;">
+                <% post.tags.each do |tag| %>
+                  <li class="list-inline-item">
+                    <%= tag.name %>
+                  </li>
+                <% end %>
+              </ul>
+            <% end %>
           </div>
           <div class="flex-2" style="flex: 1 1 35%;">
             <div class="spotify-embed flex flex-col h-full">

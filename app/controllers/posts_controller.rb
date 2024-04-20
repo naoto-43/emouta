@@ -12,9 +12,11 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
     tag_list = params[:post][:tags].split(',').map(&:strip)
     if @post.save
-      @post.save_tags(tag_list) unless tag_list.empty?s
+      @post.save_tags(tag_list) unless tag_list.empty?
+      binding.pry
       redirect_to root_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
+      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
@@ -31,7 +33,9 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
+    tag_list = params[:post][:tags].split(',').map(&:strip)
     if @post.update(post_params)
+      @post.save_tags(tag_list) unless tag_list.empty?
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
       render :edit, status: :unprocessable_entity
