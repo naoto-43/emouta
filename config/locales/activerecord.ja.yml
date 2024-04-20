@@ -16,7 +16,7 @@ ja:
         song_title: '曲名'
         lyrics: '歌詞'
         artist: 'アーティスト'
-        coment: 'コメント'
+        tags: 'タグ'
         link_to_music: 'Spotify リンク'
         comment: 'コメント'
       profile:

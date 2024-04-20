@@ -17,6 +17,11 @@
   </div>
 
   <div class="mb-5">
+    <%= f.label :tags, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_field :tags, value: post.tags.map(&:name).join(', '), class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: 'Enter tags, separated by commas' %>
+  </div>
+
+  <div class="mb-5">
     <%= f.label :link_to_music, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
     <%= f.text_field :link_to_music, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: 'link_to_music' %>
   </div>
@@ -26,5 +31,5 @@
   </div>
   <br>
 
-  <%= f.submit t('defaults.update'), class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+  <%= f.submit t('defaults.post'), class: 'bg-orange-400 hover:bg-orange-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
 <% end %>
