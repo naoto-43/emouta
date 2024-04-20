@@ -5,7 +5,7 @@
         <div class="card-body flex flex-row">
           <div class="content flex-1" style="flex: 1 1 65%; color: #10172a;">
             <h4 class="card-title" style="font-size: 18px;">
-                <%= simple_format(truncate(post.lyricks, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
+                <%= simple_format(truncate(post.lyrics, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
             </h4>     
             <p class="card-text"><%= simple_format(post.song_title) %></p>
           </div>

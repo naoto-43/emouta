@@ -1,8 +1,8 @@
 <%= form_with model: post, local: true, data: { turbo: false } do |f| %>
   <%= render 'shared/error_messages', model: post %>
   <div class="form-group">
-    <%= f.label :lyricks %>
-    <%= f.text_area :lyricks, class: 'form-control', rows: 10 %>
+    <%= f.label :lyrics %>
+    <%= f.text_area :lyrics, class: 'form-control', rows: 10 %>
   </div>
   <div class="form-group">
     <%= f.label :song_title %>

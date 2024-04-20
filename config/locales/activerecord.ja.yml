@@ -14,7 +14,7 @@ ja:
         password_confirmation: 'パスワード確認'
       post:
         song_title: '曲名'
-        lyricks: '歌詞'
+        lyrics: '歌詞'
         artist: 'アーティスト'
         coment: 'コメント'
         link_to_music: 'Spotify リンク'

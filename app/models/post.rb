@@ -1,15 +1,13 @@
 class Post < ApplicationRecord
   has_many :post_comments, dependent: :destroy
+  has_many :post_tags
+  has_many :tags, through: :post_tags
   belongs_to :user
-
-  validates :lyricks, presence: true, length: { maximum: 65_535 }
+  
+  validates :lyrics, presence: true, length: { maximum: 65_535 }
   validates :song_title, presence: true, length: { maximum: 255 }
   validates :artist, presence: true, length: { maximum: 255 }
-  validates :coment, length: { maximum: 65_535 }
   validates :link_to_music, length: { maximum: 255 }
-  # validates :design,  presence: true
-
-  # enum design: { red: 0, blue: 1, yellow: 2, green: 3 }
 
   def split_id_from_spotify_url
     uri = URI.parse(link_to_music)
