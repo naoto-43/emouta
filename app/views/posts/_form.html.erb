@@ -18,7 +18,12 @@
 
   <div class="mb-5">
     <%= f.label :tags, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
-    <%= f.text_field :tags, value: post.tags.map(&:name).join(', '), class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: 'Enter tags, separated by commas' %>
+    <%= f.text_field :tags, value: post.tags.map(&:name).join(', '), class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: t('defaults.tag_notes') %>
+  </div>
+
+  <div class="mb-5">
+    <%= f.label :story, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_area :story, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', rows: 5, placeholder: t('defaults.story_notes') %>
   </div>
 
   <div class="mb-5">

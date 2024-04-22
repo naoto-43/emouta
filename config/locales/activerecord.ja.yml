@@ -17,6 +17,7 @@ ja:
         lyrics: '歌詞'
         artist: 'アーティスト'
         tags: 'タグ'
+        story: "ストーリー"
         link_to_music: 'Spotify リンク'
         comment: 'コメント'
       profile:

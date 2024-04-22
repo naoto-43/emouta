@@ -23,6 +23,8 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
+    tag_notes: ",で区切って入力してください。"
+    story_notes: "この歌詞への思い入れがあればここに入力してください。"
   devise:
     sessions:
       new:
@@ -39,7 +41,6 @@ ja:
       title: '投稿編集'
   profile:
     new:
-    create:
     show:
     edit:
     update:

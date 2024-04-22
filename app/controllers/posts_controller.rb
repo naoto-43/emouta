@@ -13,10 +13,8 @@ class PostsController < ApplicationController
     tag_list = params[:post][:tags].split(',').map(&:strip)
     if @post.save
       @post.save_tags(tag_list) unless tag_list.empty?
-      binding.pry
       redirect_to root_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
-      binding.pry
       render :new, status: :unprocessable_entity
     end
   end
@@ -51,6 +49,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:lyrics, :song_title, :artist, :link_to_music, tags: [])
+    params.require(:post).permit(:lyrics, :song_title, :artist, :link_to_music, :story, tags: [])
   end
 end
