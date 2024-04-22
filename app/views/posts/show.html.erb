@@ -16,20 +16,31 @@
         </div>
         <div class="parent-container" style="display: flex; flex-direction: column; justify-content: space-between; flex: 1 1 35%; height: 100%;">
           <% if @post.link_to_music.include?("spotify.com") %>
-            <iframe class="spotify-embed" src="https://open.spotify.com/embed/track/<%= @post.link_to_music.split("/").last %>" 
+            <iframe class="spotify-embed" src="https://open.spotify.com/embed/track/<%= @post.link_to_music.split("/").last %>"
                     style="width: 100%; height: 352px; frameborder: 0; allowtransparency: true; allow: encrypted-media;">
             </iframe>
           <% else %>
             <% images = ['投稿アイコン１.png', '投稿アイコン２.png', '投稿アイコン３.png', '投稿アイコン４.png'] %>
             <%= image_tag(images.sample, width: '320', height: '232', style: 'object-fit: cover; width: 100%; height: 352px;') %>
           <% end %>
-          <div class="card-text" style="text-align: right; padding-top: 20px; color: black;">
-            <%= @post.user.name %>
+          <div class="flex items-center w-full">
+            <% if @post.tags.any? %>
+              <ul class="list-inline flex" style="color: #ff7200;">
+                <% @post.tags.each do |tag| %>
+                  <li class="list-inline-item">
+                    #<%= tag.name %>
+                  </li>
+                <% end %>
+              </ul>
+              <div style="flex-grow: 1;"></div>
+            <% else %>
+              <div style="flex-grow: 1;"></div>
+            <% end %>
+            <div class="card-text text-right" style="color: black;"><%= @post.user.name %></div>
           </div>
         </div>
       </div>
     </div>
-
 
     <% if user_signed_in? && current_user.id == @post.user_id %>
       <div class="buttons-container mt-3" style="display: flex; gap: 10px; justify-content: flex-end;">

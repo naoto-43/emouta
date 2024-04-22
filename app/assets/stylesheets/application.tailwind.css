@@ -2,7 +2,6 @@
 @import "spotify";
 @import "flowbite";
 @import "pagination";
-/* @import "tag"; */
 
 @tailwind base;
 @tailwind components;
