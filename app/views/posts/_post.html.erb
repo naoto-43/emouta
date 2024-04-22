@@ -13,15 +13,6 @@
                 <li class="list-inline-item">by <%= post.artist %></li>
               </ul>
             </div>
-            <% if post.tags.any? %>
-              <ul class="list-inline" style="color: black;">
-                <% post.tags.each do |tag| %>
-                  <li class="list-inline-item">
-                    <%= tag.name %>
-                  </li>
-                <% end %>
-              </ul>
-            <% end %>
           </div>
           <div class="flex-2" style="flex: 1 1 35%;">
             <div class="spotify-embed flex flex-col h-full">
@@ -32,7 +23,21 @@
                 <%= image_tag(images.sample, width: '320', height: '232', style: 'object-fit: cover;') %>
               <% end %>
             </div>
-            <div class="card-text text-right" style="color: black;"><%= post.user.name %></div>
+            <div class="flex items-center w-full">
+              <% if post.tags.any? %>
+                <ul class="list-inline flex" style="color: #ff7200;">
+                  <% post.tags.each do |tag| %>
+                    <li class="list-inline-item">
+                      #<%= tag.name %>
+                    </li>
+                  <% end %>
+                </ul>
+                <div style="flex-grow: 1;"></div> <!-- 余白を追加 -->
+              <% else %>
+                <div style="flex-grow: 1;"></div> <!-- 余白を追加 -->
+              <% end %>
+              <div class="card-text text-right" style="color: black;"><%= post.user.name %></div>
+            </div>
           </div>
         </div>
       </div>
