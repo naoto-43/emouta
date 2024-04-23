@@ -1,0 +1,17 @@
+<%= search_form_for @q, html: { data: { turbo_frame: "posts-list" } } do |f| %>
+  <div>
+    <%= f.label :song_title_cont, "曲名" %>
+    <%= f.search_field :song_title_cont %>
+  </div>
+  <div>
+    <%= f.label :artist_cont, "アーティスト" %>
+    <%= f.search_field :artist_cont %>
+  </div>
+  <div>
+    <%= f.label :tag_cont, "タグ" %>
+    <%= f.search_field :tag_cont %>
+  </div>
+  <div>
+    <%= f.submit "検索" %>
+  </div>
+<% end %>

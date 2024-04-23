@@ -32,4 +32,8 @@ class Post < ApplicationRecord
       self.tags << post_tag unless self.tags.include?(post_tag)
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[song_title artist tag]
+  end
 end
