@@ -6,7 +6,7 @@ document.addEventListener('turbo:load', function() {
       } else if (window.innerWidth >= 768 && window.innerWidth < 1024) { // タブレット
           mainContent.style.paddingTop = '90px';
       } else { // デスクトップ
-          mainContent.style.paddingTop = '110px'; 
+          mainContent.style.paddingTop = '85px'; 
       }
   }
 
