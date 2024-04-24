@@ -1,9 +1,7 @@
-<%= turbo_frame_tag "posts_list" do %>
   <%= render 'posts/search_form' %>
 
-  <%= turbo_frame_tag "search_results" do %>
+<%= turbo_frame_tag "posts_list" do %>
     <%= render partial: "posts", locals: { posts: @posts } %>
-  <% end %>
 
   <% if user_signed_in? %>
     <div class="new-post-button">
