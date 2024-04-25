@@ -1,8 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  before_action :set_search_query, only: %i[index new show edit]
   def index
-    @q = Post.ransack(params[:q])
-    @posts = @q.result.includes(:user).order(created_at: :desc).page(params[:page]).per(10)
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+    @posts = @posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -47,9 +48,19 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
+  def search
+    @q = Post.ransack(search_params)
+    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
+    render :index
+  end
+
   private
 
   def post_params
     params.require(:post).permit(:lyrics, :song_title, :artist, :link_to_music, :story, tags: [])
+  end
+
+  def search_params
+    params.require(:q).permit(:song_title_cont, :artist_cont, :tags_name_cont)
   end
 end

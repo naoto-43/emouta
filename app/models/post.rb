@@ -34,6 +34,10 @@ class Post < ApplicationRecord
   end
 
   def self.ransackable_attributes(auth_object = nil)
-    %w[song_title artist tag]
+    super + %w[song_title artist]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    %w[tags]
   end
 end
