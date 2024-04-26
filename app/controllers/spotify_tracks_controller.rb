@@ -1,28 +1,19 @@
 class SpotifyTracksController < ApplicationController
   def new
     @spotify_track = SpotifyTrack.new 
-    @artist_names = Array.new(5, "")
-    @seed_artists = Array.new(5, "")
     @track_names = Array.new(5, "")
     @seed_tracks = Array.new(5, "")
   end
 
   def create
-    @artist_names = params[:artist_query].values.reject(&:blank?)
-    @seed_artists = params[:artist_id].values.reject(&:blank?)
     @track_names = params[:track_query].values.reject(&:blank?)
     @seed_tracks= params[:track_id].values.reject(&:blank?)
-
-    if @seed_artists.length + @seed_tracks.length >= 6
-      flash[:alert] = "アーティストとトラックの合計は5つまでです。" 
-      render :new, status: :unprocessable_entity and return
-    end
   
-    if @seed_artists.empty? && @seed_tracks.empty?
+    if @seed_tracks.empty?
       flash.now[:alert] = "Artists not found. Please try again."
       render :new, status: :unprocessable_entity
     else
-      @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_artists: @seed_artists, seed_tracks: @seed_tracks)
+      @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_tracks: @seed_tracks)
       if @recommendations.tracks.empty?
         flash.now[:alert] = "No recommendations found. Please try a different artist."
         render :new, status: :unprocessable_entity
@@ -43,14 +34,7 @@ class SpotifyTracksController < ApplicationController
 
   def search
     @index = params[:index]
-    
-    if params[:artist_query].present?
-      @results = RSpotify::Artist.search(params[:artist_query], limit: 5)
-      @type = 'artists'
-    elsif params[:track_query].present?
-      @results = RSpotify::Track.search(params[:track_query], limit: 5)
-      @type = 'tracks'
-    end
+    @results = RSpotify::Track.search(params[:track_query], limit: 5)
 
     respond_to do |format|
       format.turbo_stream
