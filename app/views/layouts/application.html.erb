@@ -27,8 +27,8 @@
       <%= yield %>
     </div>
 
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= render 'shared/footer' %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>    
   </div>
 </body>
 

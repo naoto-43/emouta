@@ -30,10 +30,6 @@ body {
   flex-direction: column;
 }
 
-footer {
-  flex-shrink: 0;
-}
-
 .new-post-button {
   position: fixed;
   bottom: 20px;
