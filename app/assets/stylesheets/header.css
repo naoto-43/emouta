@@ -1,3 +1,22 @@
+:root {
+    --main-content-padding-top: 85px; /* デフォルト値 */
+    }
+
+    #main-content {
+    padding-top: var(--main-content-padding-top);
+    }
+
+    @media (max-width: 1023px) {
+    :root {
+        --main-content-padding-top: 90px;
+    }
+    }
+
+    @media (max-width: 767px) {
+    :root {
+        --main-content-padding-top: 70px;
+    }
+    }
 
 #rogo {
     animation: flicker 1.5s infinite alternate;

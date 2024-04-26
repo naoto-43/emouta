@@ -2,6 +2,7 @@
 @import "spotify";
 @import "flowbite";
 @import "pagination";
+@import "flash_message";
 
 @tailwind base;
 @tailwind components;
