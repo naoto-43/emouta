@@ -1,6 +1,6 @@
 <%= form_with url: spotify_tracks_path, local: true, data: { controller: "form" } do |form| %>
   <h2 class="text-xl font-semibold mb-4 text-center"><%= t('defaults.track') %></h2>
-  <div class="flex flex-wrap justify-center gap-4"> 
+  <div class="flex flex-wrap justify-center gap-4" style="color: black;"> 
     <% 5.times do |index| %>
       <div class="flex flex-col items-center space-y-2">
         <%= form.text_field :track_query, 
@@ -15,7 +15,7 @@
                               name: "track_id[#{index}]", 
                               value: @seed_tracks[index]
                               %>
-        <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="w-full">
+        <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="w-full" >
           <!-- 検索結果がここに表示されます -->
         </div>      
       </div>

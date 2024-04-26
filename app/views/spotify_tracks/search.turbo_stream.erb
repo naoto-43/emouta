@@ -1,5 +1,5 @@
 <%= turbo_stream.replace "tracks_#{@index}" do %>
-  <div id="tracks_<%= @index %>" turbo-frame="tracks_<%= @index %>" class="vertical-buttons">
+  <div id="tracks_<%= @index %>" turbo-frame="tracks_<%= @index %>" class="vertical-buttons" style="color: white;">
     <% @results.each do |result| %>
       <button type="button" data-action="click->form#fillQuery" data-id="<%= result.id %>" data-tracks-name="<%= result.name %>" data-tracks-index="<%= @index %>">
         <%= result.name %> - <%= result.artists.first.name %>

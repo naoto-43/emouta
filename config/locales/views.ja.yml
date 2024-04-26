@@ -50,8 +50,7 @@ ja:
   spotify_tracks:
     new:
       title: 'spotify楽曲紹介'
-      recommendation_intro: 'spotifyでおすすめの曲を10件紹介します。'
-      artist_song_limit: 'アーティスト・楽曲は合計5つまで入力できます。'
+      combined_info: "spotifyで関連度の高い曲を10曲紹介します。<br>入力後に表示される楽曲候補から選択してください。<br>候補に出てこない場合は英語で入力してみてください。"
     create:
     show:
   shared:
