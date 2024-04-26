@@ -11,18 +11,25 @@
     <link href="https://fonts.googleapis.com/css2?family=BIZ+UDMincho&family=Kiwi+Maru&family=Klee+One&family=Kosugi+Maru&family=Tsukimi+Rounded&family=Zen+Antique&display=swap" rel="stylesheet">
   </head>
 
-  <body>
+<body>
+  <div class="site-wrapper">
     <% if user_signed_in? %>
       <%= render 'shared/header' %>
     <% else %>
       <%= render 'shared/before_login_header' %>
     <% end %>
+
     <div class="flash-message">
       <%= render 'shared/flash_message' %>
     </div>
+
     <div id="main-content">
-    <%= yield %>
+      <%= yield %>
+    </div>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= render 'shared/footer' %>
-  </body>
+  </div>
+</body>
+
 </html>

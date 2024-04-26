@@ -3,7 +3,8 @@
   display: flex;
   justify-content: center;
   gap: 8px;
-  margin-top: 16px;
+  align-items: end;
+  margin-top: auto;
   margin-bottom: 16px;
   text-shadow: 
     -1px -1px 0 #000,  
@@ -36,4 +37,10 @@
 
 .pagination a:hover .translation_missing {
   color: #ffa500;
+}
+
+.content-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
 }
