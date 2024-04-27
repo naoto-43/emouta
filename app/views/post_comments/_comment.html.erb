@@ -1,0 +1,14 @@
+<turbo-frame id="comment_<%= comment.id %>">
+  <div class="bg-white shadow rounded-lg p-4 mb-4">
+    <div class="flex justify-between mb-2">
+      <p class="text-gray-700 flex-grow"><%= comment.comment %></p>
+      <p class="text-gray-500 text-sm self-center ml-4"><%= comment.user.name %></p>
+    </div>
+    <% if user_signed_in? && current_user == comment.user %>
+      <div class="text-right"> 
+          <%= link_to t('defaults.edit'), edit_post_post_comment_path(@post, comment), data: { turbo_frame: "comment_#{comment.id}" }, style: "color: #3b73ed; hover:text-blue-700" %>
+          <%= link_to t('defaults.delete'), post_post_comment_path(@post, comment), data: { turbo_method: :delete }, style: "color: #6f3ff4; hover:text-blue-700" %>
+      </div>
+    <% end %>
+  </div>
+</turbo-frame>

@@ -1,7 +1,9 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h2><%= t('defaults.ai_music_recommendations') %></h2>
+<div class="container mx-auto min-h-screen flex flex-col justify-center items-center">
+  <div class="w-full max-w-5xl px-4 lg:px-0">
+    <div class="mx-auto w-full lg:w-8/12" style="color: white;">
+      <h1 style="font-size: 32px;" class="text-center"><%= t('defaults.spotify_music_recommendations') %></h1>
+      <br>
+      <h2 class="text-center"><%= simple_format(t('spotify_tracks.new.combined_info'), {}, wrapper_tag: "span") %></h2>
       <br>
       <%= render 'form', { spotify_track: @spotify_track } %>
     </div>

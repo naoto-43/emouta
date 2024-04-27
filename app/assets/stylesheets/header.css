@@ -1,0 +1,52 @@
+:root {
+    --main-content-padding-top: 85px; /* デフォルト値 */
+    }
+
+    #main-content {
+    padding-top: var(--main-content-padding-top);
+    }
+
+    @media (max-width: 1023px) {
+    :root {
+        --main-content-padding-top: 90px;
+    }
+    }
+
+    @media (max-width: 767px) {
+    :root {
+        --main-content-padding-top: 70px;
+    }
+    }
+
+#rogo {
+    animation: flicker 1.5s infinite alternate;
+    color: #fff;
+    }
+    
+    @keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+        0 0 4px #ffa500,
+        0 0 11px #ffa500,
+        0 0 19px #ffa500,
+        0 0 40px #ffa500,
+        0 0 80px #ffa500,
+        0 0 90px #ffa500,
+        0 0 100px #ffa500,
+        0 0 150px #ffa500;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+    }
+
+#header_link {
+    font-size: 20px;
+    line-height: 20px;
+
+    text-shadow: 0 0 5px #ffa500, 0 0 15px #ffa500, 0 0 20px #ffa500, 0 0 40px #ffa500, 0 0 60px #ff0000, 0 0 10px #ff8d00, 0 0 98px #ff0000;
+    color: #fff6a9;
+    font-family: "Sacramento", cursive;
+    text-align: center;
+
+}

@@ -8,8 +8,14 @@ ja:
     didnt_receive_unlock_instructions: 'アンロック指示が届いていない方'
     sign_in_with_provider: '%{provider}でサインイン'
     post_listings: '投稿一覧'
-    ai_music_recommendations: 'AI楽曲紹介'
-    serch: '検索'
+    spotify_music_recommendations: 'Spotify楽曲紹介'
+    post: '投稿'
+    search: '検索'
+    artist: 'アーティスト'
+    track: '楽曲'
+    delete: '削除'
+    edit: '編集'
+    update: '更新'
     message:
       created: "%{item}が正常に作成されました。"
       not_created: "%{item}を作成できませんでした。"
@@ -17,29 +23,34 @@ ja:
       not_updated: "%{item}を更新できませんでした"
       deleted: "%{item}を削除しました"
       delete_confirm: '削除しますか？'
-
+    tag_notes: ",で区切って入力してください。"
+    story_notes: "この歌詞への思い入れがあればここに入力してください。"
   devise:
     sessions:
       new:
         login: 'ログイン'
         remember_me: 'パスワードを記憶する'
   posts:
+    index:
     new:
       title: '投稿作成'
-      new_post_button: 
-        create_post: '投稿'
+      lyrics: '歌詞＊'
+      song_title: '曲名＊'
+      artist: 'アーティスト＊'
     show:
       title: '投稿詳細'
+      new_comment: '新規コメント'
     edit:
       title: '投稿編集'
   profile:
     new:
-    create:
     show:
     edit:
     update:
   spotify_tracks:
     new:
+      title: 'spotify楽曲紹介'
+      combined_info: "spotifyで関連度の高い曲を10曲紹介します。<br>入力後に表示される楽曲候補から選択してください。<br>候補に出てこない場合は英語で入力してみてください。"
     create:
     show:
   shared:

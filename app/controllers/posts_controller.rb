@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  before_action :set_search_query, only: %i[index new show edit]
   def index
-    @posts = Post.all.includes(:user).order(created_at: :desc)
+    @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all
+    @posts = @posts.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   def new
@@ -10,7 +12,9 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(post_params)
+    tag_list = params[:post][:tags].split(',').map(&:strip)
     if @post.save
+      @post.save_tags(tag_list) unless tag_list.empty?
       redirect_to root_path, success: t('defaults.message.created', item: Post.model_name.human)
     else
       render :new, status: :unprocessable_entity
@@ -19,6 +23,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.post_comments
+    @new_comment = PostComment.new
   end
 
   def edit
@@ -27,7 +33,9 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
+    tag_list = params[:post][:tags].split(',').map(&:strip)
     if @post.update(post_params)
+      @post.save_tags(tag_list) unless tag_list.empty?
       redirect_to @post, success: t('defaults.message.updated', item: Post.model_name.human)
     else
       render :edit, status: :unprocessable_entity
@@ -40,9 +48,19 @@ class PostsController < ApplicationController
     redirect_to posts_path, success: t('defaults.message.deleted', item: Post.model_name.human)
   end
 
+  def search
+    @q = Post.ransack(search_params)
+    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(10)
+    render :index
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:lyricks, :song_title, :artist, :link_to_music, :design)
+    params.require(:post).permit(:lyrics, :song_title, :artist, :link_to_music, :story, tags: [])
+  end
+
+  def search_params
+    params.require(:q).permit(:song_title_cont, :artist_cont, :tags_name_cont)
   end
 end

@@ -5,21 +5,19 @@ ja:
       post: '投稿'
       like: 'いいね'
       profile: 'プロフィール'
+      comment: 'コメント'
     attributes:
       user:
+        name: 'ニックネーム'
         email: 'メールアドレス'
         password: 'パスワード'
         password_confirmation: 'パスワード確認'
       post:
         song_title: '曲名'
-        lyricks: '歌詞'
+        lyrics: '歌詞'
         artist: 'アーティスト'
-        coment: 'コメント'
-        link_to_music: 'リンク'
-        design: 'デザイン'
+        tags: 'タグ'
+        story: "ストーリー"
+        link_to_music: 'Spotify リンク'
+        comment: 'コメント'
       profile:
-      spotify_track:
-        genre: 'ジャンル'
-        age: '年代'
-        favorite_artist: '好きなアーティスト'
-        favorite_song: '好きな曲'

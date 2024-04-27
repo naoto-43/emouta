@@ -8,7 +8,7 @@
   2.times do
     Post.create!(
       song_title: Faker::Music.album, # 仮の曲のタイトル
-      lyricks: Faker::Lorem.sentence(word_count: 100), # 仮の歌詞
+      lyrics: Faker::Lorem.sentence(word_count: 100), # 仮の歌詞
       artist: Faker::Music.band, # 仮のアーティスト名
       coment: Faker::Lorem.paragraph, # 仮のコメント
       link_to_music: Faker::Internet.url, # 仮の音楽へのリンク

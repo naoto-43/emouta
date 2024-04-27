@@ -1,0 +1,13 @@
+<div style="text-align: center;" >
+  <h1><%= t('defaults.artist') %> - <%= @artist_names %></h1>
+  <h1><%= t('defaults.track') %> - <%= @track_names %></h1>
+</div>
+<br>
+<ul class="tracks-container">
+  <% @track_urls.each do |url| %>
+    <% track_id = url.split("/").last %>
+    <li>
+      <iframe src="https://open.spotify.com/embed/track/<%= track_id %>" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </li>
+  <% end %>
+</ul>

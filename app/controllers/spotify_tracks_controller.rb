@@ -1,52 +1,49 @@
 class SpotifyTracksController < ApplicationController
   def new
     @spotify_track = SpotifyTrack.new 
+    @track_names = Array.new(5, "")
+    @seed_tracks = Array.new(5, "")
   end
 
   def create
-    @spotify_track = current_user.spotify_tracks.build(spotify_track_params) 
-    if @spotify_track.save
-      age_param = spotify_track_params[:age]
-      genre_param = spotify_track_params[:genre]
-      year_range = case age_param
-      when 'upto_1979'
-        '1900-1979'
-      when 'the_1980s'
-        '1980-1989'
-      when 'the_1990s'
-        '1990-1999'
-      when 'the_2000s'
-        '2000-2009'
-      when 'the_2010s'
-        '2010-2019'
-      when 'from_2020'
-        '2020-'
-      else
-        '' 
-      end
-
-      query = "genre:\"#{genre_param}\" year:#{year_range}"
-      tracks = RSpotify::Track.search(query, limit: 5)
-      tracks.each_with_index do |track, index|
-        session[:track_links] ||= []
-        session[:track_links] << track.external_urls['spotify']
-        @track_links = session[:track_links] || []
-      end
-      
-      redirect_to spotify_track_path(id: @spotify_track.id)
-    else
+    @track_names = params[:track_query].values.reject(&:blank?)
+    @seed_tracks= params[:track_id].values.reject(&:blank?)
+  
+    if @seed_tracks.empty?
+      flash.now[:alert] = "Artists not found. Please try again."
       render :new, status: :unprocessable_entity
+    else
+      @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_tracks: @seed_tracks)
+      if @recommendations.tracks.empty?
+        flash.now[:alert] = "No recommendations found. Please try a different artist."
+        render :new, status: :unprocessable_entity
+      else
+        session[:track_urls] = @recommendations.tracks.map { |track| track.external_urls['spotify'] }
+        session[:@artist_names] = @artist_names
+        session[:@track_names] = @track_names
+        redirect_to spotify_track_result_path
+      end
     end
   end
   
-  def show
-    @track_links = session[:track_links] || []
-    session.delete(:track_links)
+  def result
+    @track_urls = session[:track_urls]
+    @artist_names = session[:@artist_names] 
+    @track_names = session[:@track_names] 
+  end
+
+  def search
+    @index = params[:index]
+    @results = RSpotify::Track.search(params[:track_query], limit: 5)
+
+    respond_to do |format|
+      format.turbo_stream
+    end
   end
   
   private
 
   def spotify_track_params
-    params.require(:spotify_track).permit(:genre, :age, :favorite_artist, :favorite_song)
+    params.require(:spotify_track).permit(:query)
   end
 end

@@ -1,31 +1,43 @@
-<div class="flex justify-center">
-  <div class="w-8/12 mb-3" style="min-height: 300px; overflow-y: auto;">
-    <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'no-underline' do %>
-      <div id="post-id-<%= post.id %>" class="card card-side bg-base-100 shadow-xl" style="min-height: 300px;">
-        <div class="card-body flex flex-row"> <!-- ここでフレックスボックスを横並びに設定 -->
-          <div class="content flex-1" style="flex: 1 1 65%;"> <!-- ここでコンテンツに65%の幅を設定 -->
-            <h4 class="card-title" style="font-size: 18px;">
-                <%= simple_format(truncate(post.lyricks, length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
-            </h4>     
-            <p class="card-text"><%= simple_format(post.song_title) %></p>
-            <%= render 'crud_menus', post: post if current_user&.own?(post) %>
-            <ul class="flex flex-wrap">
-              <li class="mr-2">
-                <%# <%= icon 'far', 'user', class: "text-sm" %> 
-                <%= post.user.email %>
-              </li>
-              <li>
-                <%# <%= icon 'far', 'calendar' %> 
-                <%= l post.created_at, format: :long %>
-              </li>
-            </ul>
+<div class="flex justify-center w-full">
+  <div class="w-8/12 mb-5" style="overflow-y: auto;">
+    <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'no-underline', data: { turbo: false } do %>
+      <div id="post-id-<%= post.id %>" class="card card-side bg-base-100 shadow-xl" style="height: 320px; background-color: white;">
+        <div class="card-body flex flex-row"> 
+          <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; font-family: 'IBM Plex Sans JPu', sans-serif;"> 
+            <div class="card-title" style="flex-grow: 1; display: flex; justify-content: center; font-size: 20px; color: black; width: 100%;">
+              <%= simple_format(truncate(post.lyrics.gsub(/^\s*$\n/, ''), length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
+            </div>
+            <div>
+              <ul class="list-inline" style="color: black;"> 
+                <li class="list-inline-item"><%= post.song_title %></li>
+                <li class="list-inline-item">by <%= post.artist %></li>
+              </ul>
+            </div>
           </div>
-          <div class="spotify-embed" style="flex: 1 1 35%;"> <!-- ここでSpotify埋め込みに35%の幅を設定 -->
-            <% if post.link_to_music.include?("spotify.com") %>
-              <iframe src="https://open.spotify.com/embed/track/<%= post.link_to_music.split("/").last %>" class="w-full h-full" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            <% else %>
-              <!-- 埋め込みがない場合でもエリアを確保 -->
-            <% end %>
+          <div class="flex-2" style="flex: 1 1 35%;">
+            <div class="spotify-embed flex flex-col h-full">
+              <% if post.link_to_music.include?("spotify.com") %>
+                <iframe src="https://open.spotify.com/embed/track/<%= post.link_to_music.split("/").last %>" class="w-full" height="232px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+              <% else %>
+                <% images = ['投稿アイコン１.png', '投稿アイコン２.png', '投稿アイコン３.png', '投稿アイコン４.png'] %>
+                <%= image_tag(images.sample, width: '320', height: '232', style: 'object-fit: cover;') %>
+              <% end %>
+            </div>
+            <div class="flex items-center w-full">
+              <% if post.tags.any? %>
+                <ul class="list-inline flex" style="color: #ff7200;">
+                  <% post.tags.each do |tag| %>
+                    <li class="list-inline-item">
+                      #<%= tag.name %>
+                    </li>
+                  <% end %>
+                </ul>
+                <div style="flex-grow: 1;"></div>
+              <% else %>
+                <div style="flex-grow: 1;"></div>
+              <% end %>
+              <div class="card-text text-right" style="color: black;"><%= post.user.name %></div>
+            </div>
           </div>
         </div>
       </div>

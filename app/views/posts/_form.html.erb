@@ -1,35 +1,38 @@
-<%= form_with model: post, local: true, data: { turbo: false } do |f| %>
-  <%= render 'shared/error_messages', model: post %>
-  <div class="form-group">
-    <%= f.label :lyricks %>
-    <%= f.text_area :lyricks, class: 'form-control', rows: 10 %>
+<%= form_with model: post, local: true, data: { turbo: false }, class: "max-w-xl mx-auto py-10 px-5 bg-white shadow-lg rounded-lg" do |f| %>
+  <div class="mb-5">
+    <%= f.label :lyrics,t('posts.new.lyrics'), class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_area :lyrics, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', rows: 10 %>
   </div>
-  <div class="form-group">
-    <%= f.label :song_title %>
-    <%= f.text_field :song_title, class: 'form-control' %>
+
+  <div class="mb-5">
+    <%= f.label :song_title,t('posts.new.song_title'), class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_field :song_title, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
-  <div class="form-group">
-    <%= f.label :artist %>
-    <%= f.text_field :artist, class: 'form-control' %>
+
+  <div class="mb-5">
+    <%= f.label :artist,t('posts.new.artist'), class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_field :artist, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline' %>
   </div>
-  <div class="form-group">
-    <%= f.label :link_to_music %>
-    <%= f.text_field :link_to_music, class: 'form-control', id: 'link_to_music' %>
+
+  <div class="mb-5">
+    <%= f.label :tags, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_field :tags, value: post.tags.map(&:name).join(', '), class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', placeholder: t('defaults.tag_notes') %>
   </div>
-  <div id="spotify-embed-container"></div>
-  <div class="form-group">
-    <%= f.label :design %>
-    <div class="radio-options">
-      <%= f.radio_button :design, 'red', id: 'Red', class: 'design-option' %>
-      <%= f.label :design, 'red', class: 'design-label', for: 'Red', style: "background-color: #ff5151;" %>
-      <%= f.radio_button :design, 'blue', id: 'Blue', class: 'design-option' %>
-      <%= f.label :design, 'blue', class: 'design-label', for: 'Blue', style: "background-color: #5177ff;" %>
-      <%= f.radio_button :design, 'yellow', id: 'Yellow', class: 'design-option' %>
-      <%= f.label :design, 'yellow', class: 'design-label', for: 'Yellow', style: "background-color: #ffff51;" %>
-      <%= f.radio_button :design, 'green', id: 'Green', class: 'design-option' %>
-      <%= f.label :design, 'green', class: 'design-label', for: 'Green', style: "background-color: #51ff82;" %>
-    </div>
+
+  <div class="mb-5">
+    <%= f.label :story, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_area :story, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', rows: 5, placeholder: t('defaults.story_notes') %>
+  </div>
+
+  <div class="mb-5">
+    <%= f.label :link_to_music, class: 'block text-gray-700 text-sm font-bold mb-2', style: 'font-size: 17px;' %>
+    <%= f.text_field :link_to_music, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', id: 'link_to_music' %>
+  </div>
+
+  <div class="flex justify-center">
+    <div id="spotify-embed-container" class="w-full max-w-xl"></div>
   </div>
   <br>
-  <%= f.submit class: 'btn btn-primary' %>
+
+  <%= f.submit t('defaults.post'), class: 'bg-orange-400 hover:bg-orange-500 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
 <% end %>

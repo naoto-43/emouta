@@ -1,0 +1,46 @@
+/* ページネーションのスタイル */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: end;
+  margin-top: auto;
+  margin-bottom: 16px;
+  text-shadow: 
+    -1px -1px 0 #000,  
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+
+.pagination a, .pagination span {
+  padding: 8px 16px;
+  border-radius: 4px;
+  color: #f3f3f3;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  background-color: #06111a;
+  color: #ffa500;
+}
+
+.pagination .active span {
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
+}
+
+.pagination .disabled span {
+  color: #ccc;
+}
+
+.pagination a:hover .translation_missing {
+  color: #ffa500;
+}
+
+.content-wrapper {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
