@@ -4,42 +4,40 @@
             <%= link_to root_path, class: "flex items-center space-x-3 rtl:space-x-reverse" do %>
                 <span id="rogo" class="self-center text-2xl font-semibold">emouta</span>
             <% end %>
-            <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <%= link_to users_sign_out_path, class: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800" do %>
-                    <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
-                        ログアウト
-                    </span>
-                <% end %>
-            </div>
-            <div class="pulsate items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-                <ul id="header_link" class="flex flex-col p-4 md:p-0 mt-4 font-semibol border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
-                <li>
-                    <%= link_to t('defaults.post_listings'), root_path, data: { turbo: false } %>
-                </li>
-                <li>
-                    <%= link_to t('defaults.spotify_music_recommendations'), new_spotify_track_path, data: { turbo: false } %>
-                </li>
+            <div class="dropdown dropdown-end">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+                    <div class="w-10 rounded-full">
+                    <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                    </div>
+                </div>
+                <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                    <li>
+                    <a class="justify-between">
+                        Profile
+                        <span class="badge">New</span>
+                    </a>
+                    </li>
+                    <li><a>
+                            <div class="pulsate items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                                <ul id="header_link" class="flex flex-col p-4 md:p-0 mt-4 font-semibol border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+                                <li>
+                                    <%= link_to t('defaults.post_listings'), root_path, data: { turbo: false } %>
+                                </li>
+                                <li>
+                                    <%= link_to t('defaults.spotify_music_recommendations'), new_spotify_track_path, data: { turbo: false } %>
+                                </li>
+                                </ul>
+                            </div>
+                    </a></li>
+                    <li><a>
+                            <%= link_to users_sign_out_path, class: "relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800" do %>
+                                <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white rounded-md group-hover:bg-opacity-0">
+                                    ログアウト
+                                </span>
+                            <% end %>
+                    </a></li>
                 </ul>
             </div>
         </div>
     </nav>
 </header>
-<%# <details class="dropdown">
-    <summary class="m-1 btn">open or close</summary>
-    <div  class="z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
-        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-        </li>
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-        </li>
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
-        </li>
-        <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Sign out</a>
-        </li>
-        </ul>
-    </div>
-</details> %>
