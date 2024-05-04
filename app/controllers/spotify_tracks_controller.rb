@@ -1,6 +1,5 @@
 class SpotifyTracksController < ApplicationController
   def new
-    @spotify_track = SpotifyTrack.new 
     @track_names = Array.new(5, "")
     @seed_tracks = Array.new(5, "")
   end
