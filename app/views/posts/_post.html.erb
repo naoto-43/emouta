@@ -2,7 +2,8 @@
   <div class="w-8/12 mb-5" style="overflow-y: auto;">
     <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'no-underline', data: { turbo: false } do %>
       <div id="post-id-<%= post.id %>" class="card card-side bg-base-100 shadow-xl" style="height: 320px; background-color: white;">
-        <div class="card-body flex flex-row"> 
+        <!-- flex-col for mobile and flex-row for md screens and up -->
+        <div class="card-body flex flex-col md:flex-row"> 
           <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; font-family: 'IBM Plex Sans JPu', sans-serif;"> 
             <div class="card-title" style="flex-grow: 1; justify-content: center; font-size: 20px; color: black; width: 100%;">
               <%= simple_format(truncate(post.lyrics.gsub(/^\s*$\n/, ''), length: 100, separator: ' ', omission: '…'), {}, wrapper_tag: "div") %>
@@ -14,7 +15,8 @@
               </ul>
             </div>
           </div>
-          <div class="flex-2" style="flex: 1 1 35%;">
+          <!-- flex-2 will stack below flex-1 on mobile -->
+          <div class="flex-1 md:flex-2" style="flex: 1 1 35%;">
             <div class="spotify-embed flex flex-col h-full">
               <% if post.link_to_music.include?("spotify.com") %>
                 <iframe src="https://open.spotify.com/embed/track/<%= post.link_to_music.split("/").last %>" class="w-full" height="232px" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
