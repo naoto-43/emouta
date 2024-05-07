@@ -1,90 +1,81 @@
 source "https://rubygems.org"
-
 ruby "3.2.2"
-
-# Rails
 gem "rails", "~> 7.1.2"
 
-# Database
-gem "pg", "~> 1.1"
+# データベース関連
+gem "pg", "~> 1.1" # PostgreSQL
 
-# Web server
+# Webサーバー
 gem "puma", ">= 5.0"
 
-# Frontend
+# フロントエンド
 gem "sprockets-rails"
-gem 'jsbundling-rails'
+gem "jsbundling-rails"
 gem "cssbundling-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
 gem "mini_racer"
 
-# Background Jobs
-# gem "sidekiq" # Uncomment if using Sidekiq for background jobs
-
-# Caching
-gem "bootsnap", require: false
-
-# Authentication
+# 認証機能
 gem "devise"
+gem "devise-i18n" # Deviseの国際化サポート
 
-# Pagination
+# ページネーション
 gem "kaminari"
 
-# Search
+# 検索機能
 gem "ransack"
 
-# Internationalization
+# 多言語対応
 gem "rails-i18n"
-gem 'devise-i18n'
 
-# Debugging and error reporting
-group :development, :test do
-  gem "debug", platforms: %i[ mri windows ]
-  gem "better_errors"
-  gem "binding_of_caller"
-end
+# キャッシング
+gem "bootsnap", require: false
 
-group :development do
-  gem "web-console"
-  # gem "spring" # Uncomment if using Spring for faster development
-  gem "rubocop"
-  gem "pry-rails"
-end
-
-group :test do
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem "rspec-rails"
-  gem "factory_bot_rails"
-end
-
-# Data seeding
-gem "faker"
-
-# Timezone data
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# SEOの最適化
-gem "meta-tags", require: "meta_tags"
+# SEO最適化
+gem "meta-tags", require: "meta_tags" # SEOタグの簡単管理
 
 # モデルとテーブルスキーマの注釈
 gem "annotate"
 
-# 開発環境でのメールプレビュー
+# ファイルアップロード
+gem "carrierwave"
+
+# 開発ツール
 group :development do
-  gem "letter_opener_web"
+  gem "web-console"
+  gem "rubocop" # コードのスタイルガイド遵守をチェック
+  gem "pry-rails" # より良いデバッグ体験
+  gem "letter_opener_web" # 開発環境でのメールプレビュー
+  gem "bullet" # N+1問題の識別
 end
 
-# N+1問題の識別
-group :development do
-  gem "bullet"
+# デバッグとエラー報告
+group :development, :test do
+  gem "debug", platforms: %i[ mri windows ]
+  gem "better_errors" # エラー画面をより詳細に
+  gem "binding_of_caller" # エラー発生時のコールスタックへのアクセス
 end
 
-gem 'pry-byebug'
+# テスト関連
+group :test do
+  gem "capybara" # フィーチャーテスト
+  gem "selenium-webdriver" # ブラウザテスト
+  gem "rspec-rails" # テストフレームワーク
+  gem "factory_bot_rails" # テストデータのファクトリ
+end
 
+# データのシーディング
+gem "faker"
+
+# 時間帯データ
+gem "tzinfo-data", platforms: %i[ windows jruby ]
+
+# 追加のデバッグツール
+gem "pry-byebug"
+
+# CSSフレームワーク
 gem "tailwindcss-rails"
 
+# Spotify APIラッパー
 gem 'rspotify'
-
-gem 'carrierwave'
