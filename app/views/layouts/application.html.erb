@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Emouta</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <meta name="google-site-verification" content="iW95GPPZQ9c97gjZHtQce8YKEJyS40B3E2h-o3PeP1c" />
-  </head>
+<head>
+  <title>Emouta</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+  <script src="//unpkg.com/alpinejs" defer></script>
+  <meta name="google-site-verification" content="iW95GPPZQ9c97gjZHtQce8YKEJyS40B3E2h-o3PeP1c" />
+  <!-- ファビコン -->
+  <%= favicon_link_tag 'favicon-16x16.png', rel: 'icon', type: 'image/png', sizes: '16x16' %>
+  <%= favicon_link_tag 'favicon-32x32.png', rel: 'icon', type: 'image/png', sizes: '32x32' %>
+  <%= favicon_link_tag 'favicon-48x48.png', rel: 'icon', type: 'image/png', sizes: '48x48' %>
+  <%= favicon_link_tag 'favicon-64x64.png', rel: 'icon', type: 'image/png', sizes: '64x64' %>
+  <%= favicon_link_tag 'favicon-128x128.png', rel: 'icon', type: 'image/png', sizes: '128x128' %>
+  <%= favicon_link_tag 'favicon-256x256.png', rel: 'icon', type: 'image/png', sizes: '256x256' %>
+</head>
 
 <body>
   <!-- Google tag (gtag.js) -->
