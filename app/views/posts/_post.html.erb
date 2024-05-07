@@ -1,7 +1,7 @@
 <div class="flex justify-center w-full">
   <div class="w-8/12 mb-5" style="overflow-y: auto;">
     <%= link_to post_path(post), id: "post-link-#{post.id}", class: 'no-underline', data: { turbo: false } do %>
-      <div id="post-id-<%= post.id %>" class="card card-side bg-base-100 shadow-xl" style="height: 320px; background-color: white;">
+      <div id="post-id-<%= post.id %>" class="card card-side bg-base-100 shadow-xl" style="min-height: 320px; background-color: white;">
         <!-- flex-col for mobile and flex-row for md screens and up -->
         <div class="card-body flex flex-col md:flex-row"> 
           <div class="content flex-1" style="flex: 1 1 65%; display: flex; flex-direction: column; justify-content: space-between; align-items: center; font-family: 'IBM Plex Sans JPu', sans-serif;"> 
