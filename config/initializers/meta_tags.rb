@@ -18,6 +18,6 @@ Rails.application.config.meta_tags = {
     description: 'emoutaで好きな歌詞を共有したり、新たな楽曲を開拓してみませんか？',
     type: 'website',
     url: 'https://www.emouta.com/',
-    image: 'https://www.emouta.com/app/assets/images/投稿アイコン２.png'
+    image: ActionController::Base.helpers.asset_url("投稿アイコン２.png", host: 'https://www.emouta.com')
   }
 }
