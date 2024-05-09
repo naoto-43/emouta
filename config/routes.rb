@@ -18,4 +18,7 @@ Rails.application.routes.draw do
   resources :spotify_tracks, only: %i[new create]
   get 'spotify_tracks/result', to: 'spotify_tracks#result', as: :spotify_track_result
   get 'spotify_tracks/search', to: 'spotify_tracks#search', as: :spotify_track_search
+
+  get '/terms', to: 'static_pages#terms'
+  get '/privacy', to: 'static_pages#privacy' 
 end
