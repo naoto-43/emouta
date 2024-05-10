@@ -63,6 +63,7 @@ group :test do
   gem "selenium-webdriver" # ブラウザテスト
   gem "rspec-rails" # テストフレームワーク
   gem "factory_bot_rails" # テストデータのファクトリ
+  gem 'shoulda-matchers'
 end
 
 # データのシーディング
