@@ -33,4 +33,19 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_many(:posts).dependent(:destroy) }
     it { is_expected.to have_many(:post_comments).dependent(:destroy) }
   end
+
+  describe '#own?' do
+    let(:user) { create(:user) }
+    let(:another_user) { create(:user) }
+    let(:post) { create(:post, user: user) }
+    let(:another_post) { create(:post, user: another_user) }
+
+    it 'returns true if the user owns the object' do
+      expect(user.own?(post)).to be true
+    end
+
+    it 'returns false if the user does not own the object' do
+      expect(user.own?(another_post)).to be false
+    end
+  end
 end
