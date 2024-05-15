@@ -20,7 +20,7 @@ require 'rspec/rails'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-# Rails.root.glob('spec/support/**/*.rb').sort.each { |f| require f }
+Dir[Rails.root.join('spec', 'support', '**', '*.rb')].each { |f| require f }
 
 # Checks for pending migrations and applies them before tests are run.
 # If you are not using ActiveRecord, you can remove these lines.
@@ -70,3 +70,16 @@ RSpec.configure do |config|
   end
 config.include FactoryBot::Syntax::Methods
 end
+
+require 'capybara/rspec'
+require 'selenium-webdriver'
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :chrome)
+end
+
+Capybara.configure do |config|
+  config.default_max_wait_time = 5
+end
+
+Capybara.javascript_driver = :selenium
