@@ -34,9 +34,11 @@
       <%= render 'shared/before_login_header' %>
     <% end %>
 
-    <div class="flash-message">
-      <%= render 'shared/flash_message' %>
-    </div>
+    <turbo-frame id="flash_messages">
+      <div class="flash-message">
+        <%= render 'shared/flash_message' %>
+      </div>
+    </turbo-frame>
 
     <div id="main-content">
       <%= yield %>
