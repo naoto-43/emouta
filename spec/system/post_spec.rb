@@ -88,7 +88,7 @@ RSpec.describe Post, type: :system do
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
         expect(page).to have_content '投稿を更新しました'
-        expect(current_path).to eq root_path
+        expect(current_path).to match(/^\/posts\/\d+$/)
       end
     end
 
@@ -110,7 +110,7 @@ RSpec.describe Post, type: :system do
     context '曲名未記入' do
       it '投稿の編集が失敗' do
         find('.card-side').click
-        click_button '編集'
+        find('a.btn.btn-primary', text: '編集').click
         fill_in 'post_lyrics', with: 'test lyrics'
         fill_in 'post_song_title', with: ''
         fill_in 'post_artist', with: 'test artist'
