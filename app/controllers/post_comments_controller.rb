@@ -1,15 +1,16 @@
 class PostCommentsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit, :update]
+  before_action :authenticate_user!
 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.post_comments.new(post_comment_params)
     @comment.user = current_user
     if @comment.save
-      redirect_to @post, notice: 'Comment was successfully created.'
+      redirect_to @post, success: t('defaults.message.created', item: PostComment.model_name.human)
     else
       @comments = @post.post_comments.reload
       @new_comment = @comment
+      flash.now[:danger] = t('defaults.message.not_created', item: PostComment.model_name.human)
       render 'posts/show'
     end
   end
@@ -24,8 +25,9 @@ class PostCommentsController < ApplicationController
     @comment = @post.post_comments.find(params[:id])
   
     if @comment.update(post_comment_params)
-      redirect_to @post, notice: 'Comment was successfully updated.'
+      redirect_to @post,  success: t('defaults.message.updated', item: PostComment.model_name.human)
     else
+      flash.now[:danger] = t('defaults.message.not_updated', item: PostComment.model_name.human)
       render :edit
     end
   end

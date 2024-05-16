@@ -58,7 +58,7 @@
         <%= button_to t('defaults.delete'), post_path(@post), method: :delete, data: { confirm: t('are_you_sure') }, class: 'btn btn-secondary' %>
       </div>
     <% end %>
-    <h2 class="text-xl font-semibold mb-4" style="margin-top: 40px;"><%= t('activerecord.models.comment') %></h2>
+    <h2 class="text-xl font-semibold mb-4" style="margin-top: 40px;"><%= t('activerecord.models.post_comment') %></h2>
     <div>
       <% @comments.each do |comment| %>
         <%= render 'post_comments/comment', comment: comment, post: @post %>

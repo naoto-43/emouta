@@ -3,9 +3,7 @@ ja:
     models:
       user: 'ユーザー'
       post: '投稿'
-      like: 'いいね'
-      profile: 'プロフィール'
-      comment: 'コメント'
+      post_comment: 'コメント'
     attributes:
       user:
         name: 'ニックネーム'
@@ -19,5 +17,4 @@ ja:
         tags: 'タグ'
         story: "ストーリー"
         link_to_music: 'Spotify リンク'
-        comment: 'コメント'
       profile:
