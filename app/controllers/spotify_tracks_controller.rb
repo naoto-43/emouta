@@ -9,12 +9,12 @@ class SpotifyTracksController < ApplicationController
     @seed_tracks= params[:track_id].values.reject(&:blank?)
   
     if @seed_tracks.empty?
-      flash.now[:alert] = "Artists not found. Please try again."
+      flash.now['danger'] = t('.not_found')
       render :new, status: :unprocessable_entity
     else
       @recommendations = RSpotify::Recommendations.generate(limit: 10, seed_tracks: @seed_tracks)
       if @recommendations.tracks.empty?
-        flash.now[:alert] = "No recommendations found. Please try a different artist."
+        flash.now['danger'] = t('.no_recommendations')
         render :new, status: :unprocessable_entity
       else
         session[:track_urls] = @recommendations.tracks.map { |track| track.external_urls['spotify'] }
