@@ -34,10 +34,6 @@ class SpotifyTracksController < ApplicationController
   def search
     @index = params[:index]
     @results = RSpotify::Track.search(params[:track_query], limit: 5)
-
-    respond_to do |format|
-      format.turbo_stream
-    end
   end
   
   private
