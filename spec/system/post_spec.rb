@@ -75,7 +75,7 @@ RSpec.describe Post, type: :system do
     end
   end
   describe '投稿編集' do
-    before{ create_post() }
+    before{ create_post }
     context 'フォームの入力値が正常' do
       it '投稿の編集が成功' do
         find('.card-side').click

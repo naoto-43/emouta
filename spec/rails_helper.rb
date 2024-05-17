@@ -71,6 +71,7 @@ RSpec.configure do |config|
 config.include FactoryBot::Syntax::Methods
 config.include LoginModule
 config.include CreatePostModule
+config.include VisitShowModule
 
 end
 

@@ -11,6 +11,12 @@ RSpec.describe PostComment, type: :model do
       expect(subject).to be_valid
     end
 
+    it 'is invalid without a comment' do
+      subject.comment = nil
+      expect(subject).not_to be_valid
+      expect(subject.errors[:comment]).to include("を入力してください")
+    end
+
     it 'is invalid without a user' do
       subject.user = nil
       expect(subject).not_to be_valid
