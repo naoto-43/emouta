@@ -28,9 +28,9 @@ class PostCommentsController < ApplicationController
   def update
     @post = Post.find(params[:post_id])
     @comment = @post.post_comments.find(params[:id])
-  
+
     if @comment.update(post_comment_params)
-      redirect_to @post,  success: t('defaults.message.updated', item: PostComment.model_name.human)
+      redirect_to @post, success: t('defaults.message.updated', item: PostComment.model_name.human)
     else
       flash.now[:danger] = t('defaults.message.not_updated', item: PostComment.model_name.human)
       render :edit
@@ -48,7 +48,7 @@ class PostCommentsController < ApplicationController
       end
     end
   end
-  
+
   private
 
   def post_comment_params

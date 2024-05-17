@@ -11,13 +11,13 @@ RSpec.describe Tag, type: :model do
     it 'is invalid without a name' do
       subject.name = nil
       expect(subject).not_to be_valid
-      expect(subject.errors[:name]).to include("を入力してください")
+      expect(subject.errors[:name]).to include('を入力してください')
     end
 
     it 'is invalid with a name longer than 12 characters' do
       subject.name = 'a' * 13
       expect(subject).not_to be_valid
-      expect(subject.errors[:name]).to include("は12文字以内で入力してください")
+      expect(subject.errors[:name]).to include('は12文字以内で入力してください')
     end
   end
 

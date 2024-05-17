@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "UserLogin", type: :system do
+RSpec.describe 'UserLogin', type: :system do
   let(:user) { create(:user) }
 
   describe '未登録' do
@@ -26,7 +26,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'password'
           fill_in 'user_password_confirmation', with: 'password'
           click_button 'アカウント登録'
-          expect(page).to have_content "ニックネームを入力してください"
+          expect(page).to have_content 'ニックネームを入力してください'
         end
       end
 
@@ -38,7 +38,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'password'
           fill_in 'user_password_confirmation', with: 'password'
           click_button 'アカウント登録'
-          expect(page).to have_content "メールアドレスを入力してください"
+          expect(page).to have_content 'メールアドレスを入力してください'
         end
       end
 
@@ -50,7 +50,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: ''
           fill_in 'user_password_confirmation', with: 'password'
           click_button 'アカウント登録'
-          expect(page).to have_content "パスワードを入力してください"
+          expect(page).to have_content 'パスワードを入力してください'
         end
       end
 
@@ -62,7 +62,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'password'
           fill_in 'user_password_confirmation', with: ''
           click_button 'アカウント登録'
-          expect(page).to have_content "パスワード確認とパスワードの入力が一致しません"
+          expect(page).to have_content 'パスワード確認とパスワードの入力が一致しません'
         end
       end
 
@@ -74,7 +74,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'password'
           fill_in 'user_password_confirmation', with: 'password'
           click_button 'アカウント登録'
-          expect(page).to have_content "メールアドレスはすでに存在します"
+          expect(page).to have_content 'メールアドレスはすでに存在します'
         end
       end
 
@@ -86,7 +86,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'pw'
           fill_in 'user_password_confirmation', with: 'pw'
           click_button 'アカウント登録'
-          expect(page).to have_content "パスワードは6文字以上で入力してください"
+          expect(page).to have_content 'パスワードは6文字以上で入力してください'
         end
       end
 
@@ -98,7 +98,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_password', with: 'password'
           fill_in 'user_password_confirmation', with: 'different'
           click_button 'アカウント登録'
-          expect(page).to have_content "パスワード確認とパスワードの入力が一致しません"
+          expect(page).to have_content 'パスワード確認とパスワードの入力が一致しません'
         end
       end
     end
@@ -122,7 +122,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_email', with: ''
           fill_in 'user_password', with: 'password'
           click_button 'ログイン'
-          expect(page).to have_content "無効なメールアドレスまたはパスワードです。"
+          expect(page).to have_content '無効なメールアドレスまたはパスワードです。'
         end
       end
 
@@ -132,7 +132,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: ''
           click_button 'ログイン'
-          expect(page).to have_content "無効なメールアドレスまたはパスワードです。"
+          expect(page).to have_content '無効なメールアドレスまたはパスワードです。'
         end
       end
 
@@ -142,7 +142,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_email', with: 'test@example.com'
           fill_in 'user_password', with: 'password'
           click_button 'ログイン'
-          expect(page).to have_content "無効なメールアドレスまたはパスワードです。"
+          expect(page).to have_content '無効なメールアドレスまたはパスワードです。'
         end
       end
 
@@ -152,7 +152,7 @@ RSpec.describe "UserLogin", type: :system do
           fill_in 'user_email', with: user.email
           fill_in 'user_password', with: 'different'
           click_button 'ログイン'
-          expect(page).to have_content "無効なメールアドレスまたはパスワードです。"
+          expect(page).to have_content '無効なメールアドレスまたはパスワードです。'
         end
       end
     end

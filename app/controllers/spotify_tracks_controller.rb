@@ -1,13 +1,13 @@
 class SpotifyTracksController < ApplicationController
   def new
-    @track_names = Array.new(5, "")
-    @seed_tracks = Array.new(5, "")
+    @track_names = Array.new(5, '')
+    @seed_tracks = Array.new(5, '')
   end
 
   def create
     @track_names = params[:track_query].values.reject(&:blank?)
-    @seed_tracks= params[:track_id].values.reject(&:blank?)
-  
+    @seed_tracks = params[:track_id].values.reject(&:blank?)
+
     if @seed_tracks.empty?
       flash.now[:danger] = t('.not_found')
       render :new, status: :unprocessable_entity
@@ -24,18 +24,18 @@ class SpotifyTracksController < ApplicationController
       end
     end
   end
-  
+
   def result
     @track_urls = session[:track_urls]
-    @artist_names = session[:@artist_names] 
-    @track_names = session[:@track_names] 
+    @artist_names = session[:@artist_names]
+    @track_names = session[:@track_names]
   end
 
   def search
     @index = params[:index]
     @results = RSpotify::Track.search(params[:track_query], limit: 5)
   end
-  
+
   private
 
   def spotify_track_params

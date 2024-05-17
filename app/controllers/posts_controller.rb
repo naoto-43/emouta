@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:edit, :update, :new, :create, :destroy]
+  before_action :authenticate_user!, only: %i[edit update new create destroy]
   before_action :set_search_query, only: %i[index new show edit]
   def index
     @posts = params[:tag_id].present? ? Tag.find(params[:tag_id]).posts : Post.all

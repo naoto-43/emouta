@@ -36,7 +36,7 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "歌詞を入力してください"
+        expect(page).to have_content '歌詞を入力してください'
       end
     end
 
@@ -53,7 +53,7 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "曲名を入力してください"
+        expect(page).to have_content '曲名を入力してください'
       end
     end
 
@@ -70,12 +70,12 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "アーティストを入力してください"
+        expect(page).to have_content 'アーティストを入力してください'
       end
     end
   end
   describe '投稿編集' do
-    before{ create_post }
+    before { create_post }
     context 'フォームの入力値が正常' do
       it '投稿の編集が成功' do
         find('.card-side').click
@@ -88,7 +88,7 @@ RSpec.describe Post, type: :system do
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
         expect(page).to have_content '投稿を更新しました'
-        expect(current_path).to match(/^\/posts\/\d+$/)
+        expect(current_path).to match(%r{^/posts/\d+$})
       end
     end
 
@@ -103,7 +103,7 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "歌詞を入力してください"
+        expect(page).to have_content '歌詞を入力してください'
       end
     end
 
@@ -118,7 +118,7 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "曲名を入力してください"
+        expect(page).to have_content '曲名を入力してください'
       end
     end
 
@@ -133,7 +133,7 @@ RSpec.describe Post, type: :system do
         fill_in 'post_story', with: 'test story'
         fill_in 'link_to_music', with: 'test url'
         click_button '投稿'
-        expect(page).to have_content "アーティストを入力してください"
+        expect(page).to have_content 'アーティストを入力してください'
       end
     end
   end

@@ -9,7 +9,7 @@ RSpec.describe 'SpotifyTracks', type: :system do
         fill_in 'track_query_0', with: 'artist'
         find('#tracks_0 button', match: :first).click
         click_button '検索'
-        expect(page).to have_selector("iframe", count: 10)
+        expect(page).to have_selector('iframe', count: 10)
         expect(current_path).to eq '/spotify_tracks/result'
       end
     end

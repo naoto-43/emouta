@@ -4,7 +4,7 @@ class AddNameToUsers < ActiveRecord::Migration[7.1]
 
     User.reset_column_information
     User.find_each do |user|
-      user.update(name: "defaults")
+      user.update(name: 'defaults')
     end
 
     change_column_null :users, :name, false

@@ -10,7 +10,7 @@ RSpec.describe PostComment, type: :system do
         save_and_open_page
         fill_in 'post_comment_comment', with: 'test comment'
         click_button '投稿'
-        expect(page).to have_link('編集', href: /post_comments\/\d+\/edit/)
+        expect(page).to have_link('編集', href: %r{post_comments/\d+/edit})
       end
     end
 
@@ -19,15 +19,15 @@ RSpec.describe PostComment, type: :system do
         save_and_open_page
         fill_in 'post_comment_comment', with: ''
         click_button '投稿'
-        expect(page).to have_no_link('編集', href: /post_comments\/\d+\/edit/)
+        expect(page).to have_no_link('編集', href: %r{post_comments/\d+/edit})
       end
     end
   end
   describe 'コメント編集' do
-    before{ create_comment }
+    before { create_comment }
     context 'フォームの入力値が正常' do
       it 'コメントの編集が成功' do
-        click_link('編集', href: /post_comments\/\d+\/edit/)
+        click_link('編集', href: %r{post_comments/\d+/edit})
         within("turbo-frame[src*='post_comments'][src*='edit']") do
           fill_in 'post_comment_comment', with: 'edit comment'
           click_button '更新'
@@ -38,7 +38,7 @@ RSpec.describe PostComment, type: :system do
 
     context 'コメント未記入' do
       it 'コメントの編集が失敗' do
-        click_link('編集', href: /post_comments\/\d+\/edit/)
+        click_link('編集', href: %r{post_comments/\d+/edit})
         within("turbo-frame[src*='post_comments'][src*='edit']") do
           fill_in 'post_comment_comment', with: 'edit comment'
           click_button '更新'

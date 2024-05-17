@@ -4,12 +4,12 @@ Rails.application.routes.draw do
     delete 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
-  get "up" => "rails/health#show", as: :rails_health_check
-  root "posts#index"
+  get 'up' => 'rails/health#show', as: :rails_health_check
+  root 'posts#index'
 
   resources :users, only: %i[new create]
   resources :posts do
-    resources :post_comments, only: [:create, :edit, :update, :destroy]
+    resources :post_comments, only: %i[create edit update destroy]
     collection do
       get :search
     end
@@ -20,5 +20,5 @@ Rails.application.routes.draw do
   get 'spotify_tracks/search', to: 'spotify_tracks#search', as: :spotify_track_search
 
   get '/terms', to: 'static_pages#terms'
-  get '/privacy', to: 'static_pages#privacy' 
+  get '/privacy', to: 'static_pages#privacy'
 end

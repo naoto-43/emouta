@@ -1,5 +1,5 @@
 module CreatePostModule
-  def create_post()
+  def create_post
     save_and_open_page
     element = find('.btn-primary', text: '投稿')
     expect(element).to be_visible

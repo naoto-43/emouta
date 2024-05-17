@@ -12,7 +12,7 @@ class Post < ApplicationRecord
   def split_id_from_spotify_url
     uri = URI.parse(link_to_music)
     path_segments = uri.path.split('/')
-    id_index = path_segments.index { |s| s == "track" || s == "playlist" } + 1
+    id_index = path_segments.index { |s| %w[track playlist].include?(s) } + 1
     path_segments[id_index] if id_index.present? && path_segments.size > id_index
   rescue URI::InvalidURIError
     nil
@@ -37,7 +37,7 @@ class Post < ApplicationRecord
     super + %w[song_title artist]
   end
 
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     %w[tags]
   end
 end
