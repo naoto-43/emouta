@@ -1,14 +1,16 @@
 source "https://rubygems.org"
 ruby "3.2.2"
+
+# Rails Framework
 gem "rails", "~> 7.1.2"
 
-# データベース関連
-gem "pg", "~> 1.1" # PostgreSQL
+# Database
+gem "pg", "~> 1.1" # PostgreSQL adapter
 
-# Webサーバー
+# Web Server
 gem "puma", ">= 5.0"
 
-# フロントエンド
+# Frontend
 gem "sprockets-rails"
 gem "jsbundling-rails"
 gem "cssbundling-rails"
@@ -16,67 +18,66 @@ gem "turbo-rails"
 gem "stimulus-rails"
 gem "mini_racer"
 
-# 認証機能
+# Authentication
 gem "devise"
-gem "devise-i18n" # Deviseの国際化サポート
+gem "devise-i18n" # Internationalization support for Devise
 
-# ページネーション
+# Pagination
 gem "kaminari"
 
-# 検索機能
+# Search Functionality
 gem "ransack"
 
-# 多言語対応
+# Internationalization
 gem "rails-i18n"
 
-# キャッシング
+# Caching
 gem "bootsnap", require: false
 
-# SEO最適化
-gem "meta-tags", require: "meta_tags" # SEOタグの簡単管理
+# SEO Optimization
+gem "meta-tags", require: "meta_tags" # Simplifies management of SEO tags
 
-# モデルとテーブルスキーマの注釈
+# Model and Schema Annotations
 gem "annotate"
 
-# ファイルアップロード
+# File Uploads
 gem "carrierwave"
 
-# 開発ツール
+# Debugging and Error Reporting
+group :development, :test do
+  gem "debug", platforms: %i[mri windows]
+  gem "better_errors" # Enhanced error page
+  gem "binding_of_caller" # Access to context around errors
+end
+
+# Development Tools
 group :development do
   gem "web-console"
-  gem "rubocop" # コードのスタイルガイド遵守をチェック
-  gem "pry-rails" # より良いデバッグ体験
-  gem "letter_opener_web" # 開発環境でのメールプレビュー
-  gem "bullet" # N+1問題の識別
+  gem "rubocop" # Code style enforcement
+  gem "rubocop-rails", require: false
+  gem "pry-rails" # Enhanced debugging
+  gem "letter_opener_web" # Email preview in development
+  gem "bullet" # Detection of N+1 queries
+  gem "pry-byebug" # Debugging tool combining pry and byebug
 end
 
-# デバッグとエラー報告
-group :development, :test do
-  gem "debug", platforms: %i[ mri windows ]
-  gem "better_errors" # エラー画面をより詳細に
-  gem "binding_of_caller" # エラー発生時のコールスタックへのアクセス
-end
-
-# テスト関連
+# Testing
 group :test do
-  gem "capybara" # フィーチャーテスト
-  gem "selenium-webdriver" # ブラウザテスト
-  gem "rspec-rails" # テストフレームワーク
-  gem "factory_bot_rails" # テストデータのファクトリ
-  gem 'shoulda-matchers'
+  gem "capybara" # Feature tests
+  gem "selenium-webdriver" # Browser testing
+  gem "rspec-rails" # Testing framework
+  gem "factory_bot_rails" # Fixture replacement
+  gem "shoulda-matchers" # Provides simple one-liner tests
 end
 
-# データのシーディング
+# Data Seeding
 gem "faker"
 
-# 時間帯データ
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+# Time Zone Data
+gem "tzinfo-data", platforms: %i[windows jruby]
 
-# 追加のデバッグツール
-gem "pry-byebug"
-
-# CSSフレームワーク
+# CSS Framework
 gem "tailwindcss-rails"
 
-# Spotify APIラッパー
-gem 'rspotify'
+# Spotify API Wrapper
+gem "rspotify"
