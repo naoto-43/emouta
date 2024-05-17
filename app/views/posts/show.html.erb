@@ -60,10 +60,10 @@
     <% end %>
     <h2 class="text-xl font-semibold mb-4" style="margin-top: 40px;"><%= t('activerecord.models.post_comment') %></h2>
     <div>
-      <% @comments.each do |comment| %>
-        <%= render 'post_comments/comment', comment: comment, post: @post %>
+      <%= turbo_frame_tag "comments_list" do %>
+        <%= render partial: "post_comments/comments", locals: { comments: @comments, post: @post } %>
       <% end %>
-      <%= render 'post_comments/new_comment' %>
+      <%= render 'post_comments/new_comment', post: @post, new_comment: PostComment.new %>
     </div>
   </div>
 </div>

@@ -1,13 +1,12 @@
 <div class="content-wrapper"> 
   <%= render 'posts/search_form' %>
-
   <%= turbo_frame_tag "posts_list" do %>
       <%= render partial: "posts", locals: { posts: @posts } %>
-      <% if user_signed_in? %>
-        <div class="new-post-button">
-          <%= link_to t('defaults.post'), new_post_path, class: "btn btn-primary bg-orange-400 hover:bg-orange-500 border-none font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", data: { turbo: false } %>
-        </div>
-      <% end %>
+  <% end %>
+  <% if user_signed_in? %>
+    <div class="new-post-button">
+      <%= link_to t('defaults.post'), new_post_path, class: "btn btn-primary bg-orange-400 hover:bg-orange-500 border-none font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline", data: { turbo: false } %>
+    </div>
   <% end %>
 </div>  
 <div class="pagination-wrapper">
