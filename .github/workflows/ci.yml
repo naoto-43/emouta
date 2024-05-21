@@ -1,0 +1,51 @@
+name: emouta CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres228
+          POSTGRES_DB: emouta_test
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        gem install bundler
+        bundle install
+
+    - name: Run Rubocop
+      run: bundle exec rubocop
+
+    - name: Setup database
+      run: |
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+
+    - name: Run tests
+      run: bundle exec rspec
