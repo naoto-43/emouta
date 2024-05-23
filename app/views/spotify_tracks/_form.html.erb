@@ -1,3 +1,6 @@
+<!-- stimulusを使用したformの処理 -->
+<!-- text_fieldの入力に対してform#searchを介してspotify_tracks#searchにデータを渡し、非同期で楽曲候補を表示 -->
+<!-- ユーザーの選択データをhidden_fieldに格納、submitでspotify_tracks#createに渡す -->
 <%= form_with url: spotify_tracks_path, local: true, data: { controller: "form" } do |form| %>
   <h2 class="text-xl font-semibold mb-4 text-center"><%= t('defaults.track') %></h2>
   <div class="flex flex-wrap justify-center gap-4" style="color: black;"> 
@@ -10,13 +13,15 @@
                             autocomplete: "off", 
                             class: "form-input border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500", 
                             data: { action: "input->form#search", index: index } %>
+        <!--  実際にrspotidyで関連曲を取得するのに必要な楽曲のidを格納する -->
         <%= form.hidden_field :track_id, 
                               id: "track_id_#{index}", 
                               name: "track_id[#{index}]", 
                               value: @seed_tracks[index]
                               %>
         <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="w-full" >
-          <!-- 検索結果がここに表示されます -->
+          <!-- 楽曲候補がここに表示される -->
+          <!-- この楽曲候補がクリックされるとform#fillQueryが発火し、text_field,hidden_fieldにデータが格納される -->
         </div>      
       </div>
     <% end %>

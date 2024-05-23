@@ -1,6 +1,8 @@
 class SpotifyTracksController < ApplicationController
   def new
+    # rspotifyで取得した楽曲名（ユーザーに表示する用）
     @track_names = Array.new(5, '')
+    # rspotifyで取得した楽曲のid（実際にrspotifyで関連を取得するのに必要）
     @seed_tracks = Array.new(5, '')
   end
 
