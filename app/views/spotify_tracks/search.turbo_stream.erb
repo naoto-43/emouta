@@ -1,7 +1,12 @@
+<%# 楽曲候補を表示する %>
 <%= turbo_stream.replace "tracks_#{@index}" do %>
   <div id="tracks_<%= @index %>" turbo-frame="tracks_<%= @index %>" class="vertical-buttons" style="color: white;">
+    <%# form#fillQueryにデータを飛ばす %>
     <% @results.each do |result| %>
-      <button type="button" data-action="click->form#fillQuery" data-id="<%= result.id %>" data-tracks-name="<%= result.name %>" data-tracks-index="<%= @index %>">
+      <button type="button" data-action="click->form#fillQuery" 
+              data-id="<%= result.id %>" 
+              data-full-name="<%= "#{result.name} - #{result.artists.first.name}" %>" 
+              data-track-index="<%= @index %>">
         <%= result.name %> - <%= result.artists.first.name %>
       </button>
     <% end %>

@@ -1,13 +1,13 @@
 class SpotifyTracksController < ApplicationController
   def new
     # rspotifyで取得した楽曲名（ユーザーに表示する用）
-    @track_names = Array.new(5, '')
-    # rspotifyで取得した楽曲のid（実際にrspotifyで関連を取得するのに必要）
+    @track_query = Array.new(5, '')
+    #  rspotifyで取得した楽曲のid（実際にrspotifyで関連を取得するのに必要）
     @seed_tracks = Array.new(5, '')
   end
 
   def create
-    @track_names = params[:track_query].values.reject(&:blank?)
+    @track_query = params[:track_query].values.reject(&:blank?)
     @seed_tracks = params[:track_id].values.reject(&:blank?)
 
     if @seed_tracks.empty?
@@ -20,8 +20,7 @@ class SpotifyTracksController < ApplicationController
         render :new, status: :unprocessable_entity
       else
         session[:track_urls] = @recommendations.tracks.map { |track| track.external_urls['spotify'] }
-        session[:@artist_names] = @artist_names
-        session[:@track_names] = @track_names
+        session[:@track_query] = @track_query
         redirect_to spotify_track_result_path
       end
     end
@@ -29,8 +28,7 @@ class SpotifyTracksController < ApplicationController
 
   def result
     @track_urls = session[:track_urls]
-    @artist_names = session[:@artist_names]
-    @track_names = session[:@track_names]
+    @track_query = session[:@track_query]
   end
 
   def search

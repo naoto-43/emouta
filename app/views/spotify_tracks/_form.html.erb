@@ -9,7 +9,7 @@
         <%= form.text_field :track_query, 
                             id: "track_query_#{index}", 
                             name: "track_query[#{index}]", 
-                            value: @track_names[index],
+                            value: @track_query[index],
                             autocomplete: "off", 
                             class: "form-input border border-gray-300 rounded-md shadow-sm p-2 focus:ring-blue-500 focus:border-blue-500", 
                             data: { action: "input->form#search", index: index } %>
@@ -20,7 +20,7 @@
                               value: @seed_tracks[index]
                               %>
         <div id="tracks_<%= index %>" turbo-frame="tracks_<%= index %>" class="w-full" >
-          <!-- 楽曲候補がここに表示される -->
+          <!-- search.turbo_stream.erbがレンダリングされる -->
           <!-- この楽曲候補がクリックされるとform#fillQueryが発火し、text_field,hidden_fieldにデータが格納される -->
         </div>      
       </div>

@@ -37,10 +37,10 @@ export default class extends Controller {
   fillQuery(event) {
     console.log("fillQuery triggered");
     // spotify_tracks/search.turbo_stream.erbの各値をセット
-    const name = event.currentTarget.dataset[`tracksName`];
-    const index = event.currentTarget.dataset[`tracksIndex`]; 
+    const fullName = event.currentTarget.dataset['fullName'];
+    const index = event.currentTarget.dataset[`trackIndex`]; 
     const trackId = event.currentTarget.dataset.id; 
-    document.querySelector(`#track_query_${index}`).value = name;
+    document.querySelector(`#track_query_${index}`).value = fullName;
     document.querySelector(`#track_id_${index}`).value = trackId;
     console.log("Track ID:", trackId);
     this.clearSearchResults(index);
