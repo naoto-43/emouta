@@ -35,10 +35,4 @@ class SpotifyTracksController < ApplicationController
     @index = params[:index]
     @results = RSpotify::Track.search(params[:track_query], limit: 5)
   end
-
-  private
-
-  def spotify_track_params
-    params.require(:spotify_track).permit(:query)
-  end
 end
