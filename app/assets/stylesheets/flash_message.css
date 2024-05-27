@@ -1,18 +1,12 @@
 .flash-message {
   width: 100%;
   position: relative;
-  top: 85px;
+  top: 82px;
   z-index: 1000;
-}
-
-@media (max-width: 1023px) {
-  .flash-message {
-    top: 90px;
-  }
 }
 
 @media (max-width: 767px) {
   .flash-message {
-    top: 70px;
+    top: 60px;
   }
 }

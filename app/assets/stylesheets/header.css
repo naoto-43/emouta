@@ -6,15 +6,9 @@
     padding-top: var(--main-content-padding-top);
     }
 
-    @media (max-width: 1023px) {
-    :root {
-        --main-content-padding-top: 90px;
-    }
-    }
-
     @media (max-width: 767px) {
     :root {
-        --main-content-padding-top: 70px;
+        --main-content-padding-top: 60px;
     }
     }
 
