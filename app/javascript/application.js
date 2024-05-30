@@ -1,5 +1,4 @@
 import "@hotwired/turbo-rails";
-import "@rails/ujs";
 import "./controllers";
 import 'flowbite';
 import "./embed_spotify";
